@@ -1,7 +1,10 @@
 ---
 title: Hello world
-slug: hello-world
 ---
+
+Some test markdown.
+
+And a snippet for Shiki:
 
 ```html
 <p>Test</p>

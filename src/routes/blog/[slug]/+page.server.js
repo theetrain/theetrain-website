@@ -1,9 +1,15 @@
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
-  const posts = import.meta.glob('$blog/*')
+import { allPosts } from 'content-collections'
+import { error } from '@sveltejs/kit'
 
-  console.log({posts})
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ params }) {
+  const post = allPosts.find((el) => el.slug === params.slug)
+
+  if (!post) error(404, 'Post not found.')
+
   return {
-    title: 'Test'
+    content: post.content,
+    title: post.title,
+    slug: post.slug
   }
 }

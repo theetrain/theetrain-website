@@ -1,5 +1,4 @@
-import js from '@eslint/js'
-import ts from 'typescript-eslint'
+import stylistic from '@stylistic/eslint-plugin'
 import svelte from 'eslint-plugin-svelte'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
@@ -7,8 +6,7 @@ import neostandard from 'neostandard'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  js.configs.recommended,
-  ...ts.configs.recommended,
+  stylistic.configs['all-flat'],
   ...neostandard({ ts: true }),
   ...svelte.configs['flat/recommended'],
   prettier,
@@ -30,12 +28,22 @@ export default [
     }
   },
   {
-    ignores: ['build/', '.svelte-kit/', 'dist/']
+    ignores: [
+      "build/",
+      '.svelte-kit/',
+      'dist/'
+    ],
   },
   {
     rules: {
-      indent: ['error', 2],
-      'comma-dangle': ['error', 'never']
+      '@stylistic/indent': [
+        "error",
+        2
+      ],
+      '@stylistic/comma-dangle': [
+        "error",
+        'never'
+      ],
     },
     ignores: ['*.svelte']
   }
