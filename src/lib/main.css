@@ -1,0 +1,5 @@
+@import './sugar.css';
+
+pre.shiki code {
+  background-color: transparent;
+}

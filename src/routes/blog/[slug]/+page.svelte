@@ -1,5 +1,6 @@
 <script lang="ts">
   const { data } = $props()
+  const { Post } = data
 </script>
 
 <svelte:head>
@@ -8,4 +9,4 @@
 
 <h1>{data.title}</h1>
 
-{@html data.content}
+<Post />

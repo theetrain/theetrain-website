@@ -1,0 +1,22 @@
+---
+title: Hello world
+---
+
+<script>
+  import Thing from '$blog/Thing.svelte'
+</script>
+
+<Thing />
+
+Some test markdown. And a snippet for Shiki:
+
+```html {3}
+<p>Test</p>
+
+<p>Another test</p>
+```
+
+Now that's some real Markdown right there. You could even `<span>add inline
+code</span>`.
+
+This site is styled using sugar.css; now I need to draw the rest of the owl.
