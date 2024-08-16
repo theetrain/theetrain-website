@@ -3,6 +3,8 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, defineMDSveXConfig } from 'mdsvex'
 import { codeToHtml } from 'shiki'
 
+const themes = { light: 'github-light', dark: 'github-dark' }
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: [
@@ -10,12 +12,7 @@ const config = {
     mdsvex(
       defineMDSveXConfig({
         highlight: {
-          highlighter: (code, lang) => {
-            return codeToHtml(code, {
-              lang,
-              themes: { light: 'github-light', dark: 'github-dark' }
-            })
-          }
+          highlighter: (code, lang) => codeToHtml(code, { lang, themes })
         },
         extensions: ['.md', '.svx']
       })
