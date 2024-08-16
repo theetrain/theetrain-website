@@ -1,16 +1,21 @@
-import { dev } from '$app/environment'
 import { base } from '$app/paths'
 
 /**
+ * Prepend base URL to root-relative links.
  * @param {string} href
  */
 export function prependBase(href) {
-  let resolvedPath = href
+  let inputPath = href
 
-  if (!dev && !(href.startsWith('http') || href.startsWith('//'))) {
-    // Prepend base url to relative path
-    resolvedPath = new URL(href, base).pathname
+  console.log({ base })
+
+  // Remove leading slash from urlPath if present
+  if (href.startsWith('/')) {
+    inputPath = href.slice(1)
+  } else {
+    return href
   }
 
-  return resolvedPath
+  // Concatenate base and urlPath with a single slash between them
+  return `${base}/${inputPath}`
 }
