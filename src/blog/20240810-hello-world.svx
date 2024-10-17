@@ -1,5 +1,6 @@
 ---
-title: Hello world
+title: Hello, blog!
+redirect_from: /blog/hello-world
 ---
 
 <script>

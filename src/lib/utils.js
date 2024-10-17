@@ -7,8 +7,6 @@ import { base } from '$app/paths'
 export function prependBase(href) {
   let inputPath = href
 
-  console.log({ base })
-
   // Remove leading slash from urlPath if present
   if (href.startsWith('/')) {
     inputPath = href.slice(1)

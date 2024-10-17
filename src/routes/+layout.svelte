@@ -1,10 +1,29 @@
 <script>
+  import { page } from '$app/stores'
+  import A from '$lib/A.svelte'
   import '$lib/main.css'
 
   let { children } = $props()
+
+  let title = $derived.by(() => {
+    if ($page.data.title) {
+      return `${$page.data.title} - theetrain.ca`
+    } else {
+      return 'theetrain.ca'
+    }
+  })
+
+  let breadcrumbs = $derived.by(() => {
+    if ($page.url.pathname !== '/') {
+      return [{ title: 'Home', href: '/' }]
+    } else {
+      return null
+    }
+  })
 </script>
 
 <svelte:head>
+  <title>{title}</title>
   <script>
     function updateTheme({ matches }) {
       if (matches) {
@@ -21,18 +40,39 @@
   </script>
 </svelte:head>
 
-<main>{@render children()}</main>
+<header>
+  <nav class="s-container" aria-label="top navigation">
+    <A href="/" id="site-title">Enrico Sacchetti</A>
+    <menu>
+      <A href="/blog">Blog</A>
+      <A href="/about">About me</A>
+      <A href="/portfolio">Portfolio</A>
+    </menu>
+  </nav>
+</header>
 
-<style>
-  @media (prefers-color-scheme: dark) {
-    :global(.shiki),
-    :global(.shiki span) {
-      color: var(--shiki-dark) !important;
-      background-color: var(--shiki-dark-bg) !important;
-      /* Optional, if you also want font styles */
-      font-style: var(--shiki-dark-font-style) !important;
-      font-weight: var(--shiki-dark-font-weight) !important;
-      text-decoration: var(--shiki-dark-text-decoration) !important;
-    }
-  }
-</style>
+{#if breadcrumbs}
+  <nav class="s-container" aria-label="breadcrumb">
+    <ol>
+      {#each breadcrumbs as { title, href }}
+        <li><A {href}>{title}</A></li>
+      {/each}
+    </ol>
+  </nav>
+{/if}
+
+<main class="s-container">{@render children()}</main>
+
+<footer>
+  <div class="s-container">
+    Enrico Sacchetti
+    <nav aria-label="footer navigation">
+      <menu>
+        <A href="/">Home</A>
+        <A href="/blog">Blog</A>
+        <A href="/about">About me</A>
+        <A href="/portfolio">Portfolio</A>
+      </menu>
+    </nav>
+  </div>
+</footer>

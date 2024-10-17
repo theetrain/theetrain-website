@@ -5,12 +5,16 @@ const posts = defineCollection({
   directory: 'src/blog',
   include: '**/*.svx',
   schema: (z) => ({
-    title: z.string()
+    title: z.string(),
+    redirect_from: z.string()
   }),
   transform: async (doc) => {
     return {
       ...doc,
-      slug: doc.title.toLowerCase().replace(/ /g, '-')
+      slug: doc.title
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/\,|\+|\(|\)|\`|\~|\!/g, '')
     }
   }
 })
