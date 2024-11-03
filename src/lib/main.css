@@ -5,8 +5,8 @@ a {
   border-bottom: 0;
 }
 
-ul,
-menu {
+nav ul,
+nav menu {
   list-style: inherit;
   list-style-type: '';
 }

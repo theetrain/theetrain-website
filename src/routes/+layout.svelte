@@ -3,7 +3,7 @@
   import A from '$lib/A.svelte'
   import '$lib/main.css'
 
-  let { children } = $props()
+  let { children, data } = $props()
 
   let title = $derived.by(() => {
     if ($page.data.title) {
@@ -13,9 +13,12 @@
     }
   })
 
+  /**
+   * @type {{ title: string, href: string }[] | null}
+   */
   let breadcrumbs = $derived.by(() => {
     if ($page.url.pathname !== '/') {
-      return [{ title: 'Home', href: '/' }]
+      return [...data.titles, { title: $page.data.title, href: '#main' }]
     } else {
       return null
     }
