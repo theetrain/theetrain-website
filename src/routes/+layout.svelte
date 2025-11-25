@@ -1,13 +1,13 @@
 <script>
-  import { page } from '$app/stores'
+  import { page } from '$app/state'
   import A from '$lib/A.svelte'
   import '$lib/main.css'
 
   let { children, data } = $props()
 
   let title = $derived.by(() => {
-    if ($page.data.title) {
-      return `${$page.data.title} - theetrain.ca`
+    if (page.data.title) {
+      return `${page.data.title} - theetrain.ca`
     } else {
       return 'theetrain.ca'
     }
@@ -17,8 +17,9 @@
    * @type {{ title: string, href: string }[] | null}
    */
   let breadcrumbs = $derived.by(() => {
-    if ($page.url.pathname !== '/') {
-      return [...data.titles, { title: $page.data.title, href: '#main' }]
+    if (page.url.pathname !== '/') {
+      // Link to current page
+      return [...data.titles, { title: page.data.title, href: '#main' }]
     } else {
       return null
     }
@@ -49,7 +50,6 @@
     <menu>
       <A href="/blog">Blog</A>
       <A href="/about">About me</A>
-      <A href="/portfolio">Portfolio</A>
     </menu>
   </nav>
 </header>
@@ -64,7 +64,7 @@
   </nav>
 {/if}
 
-<main class="s-container">{@render children()}</main>
+<main class="s-container" id="main">{@render children()}</main>
 
 <footer>
   <div class="s-container">
@@ -74,7 +74,6 @@
         <A href="/">Home</A>
         <A href="/blog">Blog</A>
         <A href="/about">About me</A>
-        <A href="/portfolio">Portfolio</A>
       </menu>
     </nav>
   </div>

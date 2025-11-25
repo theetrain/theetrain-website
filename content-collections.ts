@@ -1,12 +1,14 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
+import * as v from 'valibot'
 
 const posts = defineCollection({
   name: 'posts',
   directory: 'src/blog',
   include: '**/*.svx',
-  schema: (z) => ({
-    title: z.string(),
-    redirect_from: z.string()
+  schema: v.object({
+    title: v.string(),
+    redirect_from: v.string(),
+    content: v.string()
   }),
   transform: async (doc) => {
     return {

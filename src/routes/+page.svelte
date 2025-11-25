@@ -4,8 +4,8 @@
 
 <h1>Welcome to my site!</h1>
 <p>
-  Hi, I'm Enrico Sacchetti. I'm currently a full-time Senior Software Architect for web at Viral
-  Nation.
+  Hi, I'm Enrico Sacchetti. I'm a software architect and I help teams build pleasantly unmemorable
+  experiences.
 </p>
 
 <p>Check out:</p>
