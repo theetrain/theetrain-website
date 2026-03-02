@@ -37,7 +37,7 @@
     <a href="/" id="site-title">Enrico Sacchetti</a>
     <menu>
       <a href="/blog">Blog</a>
-      <a href="/aabout">About me</a>
+      <a href="/about">About me</a>
     </menu>
   </nav>
 </header>
