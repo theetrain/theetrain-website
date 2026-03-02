@@ -1,11 +1,7 @@
 <script lang="ts">
   const { data } = $props()
-  const { Post } = data
+  const Post = $derived(data.Post)
 </script>
-
-<svelte:head>
-  <title>{data.title} - theetrain.ca</title>
-</svelte:head>
 
 <h1>{data.title}</h1>
 

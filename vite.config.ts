@@ -3,5 +3,5 @@ import contentCollections from '@content-collections/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [sveltekit(), contentCollections()]
+  plugins: [sveltekit(), process.env.VITEST ? undefined : contentCollections()]
 })

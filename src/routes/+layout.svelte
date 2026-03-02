@@ -1,6 +1,6 @@
 <script>
   import { page } from '$app/state'
-  import A from '$lib/A.svelte'
+  import Breadcrumbs from '$lib/Breadcrumbs.svelte'
   import '$lib/main.css'
 
   let { children, data } = $props()
@@ -10,18 +10,6 @@
       return `${page.data.title} - theetrain.ca`
     } else {
       return 'theetrain.ca'
-    }
-  })
-
-  /**
-   * @type {{ title: string, href: string }[] | null}
-   */
-  let breadcrumbs = $derived.by(() => {
-    if (page.url.pathname !== '/') {
-      // Link to current page
-      return [...data.titles, { title: page.data.title, href: '#main' }]
-    } else {
-      return null
     }
   })
 </script>
@@ -46,23 +34,15 @@
 
 <header>
   <nav class="s-container" aria-label="top navigation">
-    <A href="/" id="site-title">Enrico Sacchetti</A>
+    <a href="/" id="site-title">Enrico Sacchetti</a>
     <menu>
-      <A href="/blog">Blog</A>
-      <A href="/about">About me</A>
+      <a href="/blog">Blog</a>
+      <a href="/aabout">About me</a>
     </menu>
   </nav>
 </header>
 
-{#if breadcrumbs}
-  <nav class="s-container" aria-label="breadcrumb">
-    <ol>
-      {#each breadcrumbs as { title, href }}
-        <li><A {href}>{title}</A></li>
-      {/each}
-    </ol>
-  </nav>
-{/if}
+<Breadcrumbs breadcrumbs={data.breadcrumbs} />
 
 <main class="s-container" id="main">{@render children()}</main>
 
@@ -71,9 +51,9 @@
     Enrico Sacchetti
     <nav aria-label="footer navigation">
       <menu>
-        <A href="/">Home</A>
-        <A href="/blog">Blog</A>
-        <A href="/about">About me</A>
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About me</a>
       </menu>
     </nav>
   </div>
