@@ -1,4 +1,3 @@
-import type { Pathname } from '$app/types'
 import type { Breadcrumb } from './types'
 
 const staticRoutes = new Map<string, Breadcrumb>([
@@ -13,9 +12,7 @@ const staticRoutes = new Map<string, Breadcrumb>([
  * @param url Current URL
  * @param title Current route's page title
  */
-export function buildStaticBreadcrumbs(
-  url: URL
-): Breadcrumb[] {
+export function buildStaticBreadcrumbs(url: URL): Breadcrumb[] {
   // On home page, no need for breadcrumbs
   if (url.pathname === '/') return []
 

@@ -16,13 +16,17 @@
 
 <svelte:head>
   <title>{title}</title>
+  <meta
+    name="description"
+    content="Enrico Sacchetti: software architect based in Ontario, Canada.
+Specializing in front end web development, inclusive design, and design systems."
+  />
+  <meta property="og:title" content={title} />
   <script>
     function updateTheme({ matches }) {
       if (matches) {
-        console.log('change to dark mode!')
         document.documentElement.setAttribute('data-theme', 'dark')
       } else {
-        console.log('change to light mode!')
         document.documentElement.setAttribute('data-theme', 'light')
       }
     }
@@ -37,7 +41,6 @@
     <a href="/" id="site-title">Enrico Sacchetti</a>
     <menu>
       <a href="/blog">Blog</a>
-      <a href="/about">About me</a>
     </menu>
   </nav>
 </header>
