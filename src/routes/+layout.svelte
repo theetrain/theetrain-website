@@ -56,7 +56,6 @@ Specializing in front end web development, inclusive design, and design systems.
       <menu>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
-        <a href="/about">About me</a>
       </menu>
     </nav>
   </div>
