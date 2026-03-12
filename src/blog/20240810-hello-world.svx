@@ -1,6 +1,6 @@
 ---
 title: Hello, blog!
-redirect_from: /blog/hello-world
+date_authored: 2026-03-12T01:06:47.829Z
 ---
 
 <script>
