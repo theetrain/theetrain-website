@@ -4,8 +4,8 @@ Website source for <https://theetrain.ca>.
 
 ## Todo
 
-- [ ] Logo
-- [ ] Portrait
+- [x] Logo
+- [x] Portrait
 - [ ] First blog
   - [x] Date authored
   - [ ] Date modified

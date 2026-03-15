@@ -3,14 +3,35 @@
   const yearsXp = new Date().getFullYear() - new Date('2014-02-01').getFullYear()
 </script>
 
-<h1>Meet Enrico Sacchetti</h1>
+<section aria-labelledby="meet-enrico">
+  <h1 id="meet-enrico">Meet Enrico Sacchetti</h1>
 
-<p>
-  Hi, I'm a software architect with {yearsXp} years of professional experience. I help eliminate frustration
-  on the web by building scalable tools and patterns for teams and online consumers.
-</p>
+  <div class="responsive-row-50">
+    <div id="portrait">
+      <enhanced:img
+        src="$lib/assets/enrico.jpg"
+        alt="Portrait of Enrico; a man facing
+      the camera, smiling"
+      />
+    </div>
+    <div id="intro">
+      <p>
+        Hi, I'm a software architect with {yearsXp} years of professional experience. I help eliminate
+        frustration on the web by building scalable tools and patterns for teams and online consumers.
+      </p>
 
-<p>My methodology:</p>
+      <p>Let's build a better web, together.</p>
+    </div>
+  </div>
+</section>
+
+<h2>Latest blog posts:</h2>
+
+<ul>
+  <li><a href="/blog">My blog</a></li>
+</ul>
+
+<h2>My methodology:</h2>
 
 <ol>
   <li>Avoid complexity.</li>
@@ -24,14 +45,6 @@
     workflows.
   </li>
 </ol>
-
-<p>Let's build a better web, together.</p>
-
-<h2>Latest blog posts:</h2>
-
-<ul>
-  <li><a href="/blog">My blog</a></li>
-</ul>
 
 <h2>Achievements</h2>
 
@@ -83,6 +96,33 @@
 </ul>
 
 <style>
+  #portrait {
+    width: clamp(450px, 50%, 100%);
+    flex-basis: 300px;
+    flex-grow: 0;
+
+    :global(picture) {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    :global(img) {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  #intro {
+    font-size: clamp(1rem, 2vw + 0.25rem, 1.3rem);
+    text-wrap: balance;
+  }
+
+  .responsive-row-50 {
+    gap: 1rem;
+    align-items: center;
+  }
+
   iframe {
     width: clamp(560px, calc(100vh * 1.777 - 300px), 100%);
     aspect-ratio: 1.777;

@@ -66,7 +66,7 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <main class="s-container" id="main">{@render children()}</main>
 
-<footer>
+<footer class="responsive-row">
   <div class="s-container">
     Enrico Sacchetti
     <nav aria-label="footer navigation">
@@ -95,18 +95,11 @@ Specializing in front end web development, inclusive design, and design systems.
     font-size: 1.5rem;
     text-decoration: none;
     line-height: 1.2;
+    padding: 8px 0;
   }
   #logo {
     height: 1lh;
     width: auto;
     vertical-align: top;
-  }
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-
-    & > * {
-      flex: 1 1 auto;
-    }
   }
 </style>

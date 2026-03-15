@@ -27,6 +27,29 @@ pre.shiki code {
   }
 }
 
+/* Theme overrides */
+@media (height < 400px) {
+  body > header {
+    position: static;
+  }
+}
+
+/* Utilities */
+.responsive-row,
+.responsive-row-50 {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    flex: 1 1 auto;
+  }
+}
+.responsive-row-50 {
+  & > * {
+    flex: 1 1 50%;
+  }
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
