@@ -1,14 +1,13 @@
 <script>
   /** Years of experience */
-  const yearsXp = $state(new Date().getFullYear() - new Date('2014-02-01').getFullYear())
+  const yearsXp = new Date().getFullYear() - new Date('2014-02-01').getFullYear()
 </script>
 
-<h1>Meet Enrico</h1>
+<h1>Meet Enrico Sacchetti</h1>
 
 <p>
-  Hi, I'm Enrico Sacchetti. I'm a software architect with {yearsXp} years of professional experience.
-  My primary goal is to help eliminate frustration on the web by building scalable tools and patterns
-  for teams and online consumers.
+  Hi, I'm a software architect with {yearsXp} years of professional experience. I help eliminate frustration
+  on the web by building scalable tools and patterns for teams and online consumers.
 </p>
 
 <p>My methodology:</p>

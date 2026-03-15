@@ -1,19 +1,3 @@
-import { base } from '$app/paths'
+import type { Pathname } from '$app/types'
 
-/**
- * Prepend base URL to root-relative links.
- * @param {string} href
- */
-export function prependBase(href) {
-  let inputPath = href
-
-  // Remove leading slash from urlPath if present
-  if (href.startsWith('/')) {
-    inputPath = href.slice(1)
-  } else {
-    return href
-  }
-
-  // Concatenate base and urlPath with a single slash between them
-  return `${base}/${inputPath}`
-}
+export type HREF = Pathname | '#main'

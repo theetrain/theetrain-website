@@ -1,5 +1,6 @@
 import type { HTMLAnchorAttributes } from 'svelte/elements'
 import type { Pathname } from '$app/types'
+import type { HREF } from '$lib/utils'
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -19,7 +20,7 @@ declare global {
       a: Omit<HTMLAnchorAttributes, 'href'> & {
         // The (string & {}) trick prevents 'string' from collapsing the union,
         // preserving Intellisense for your Pathnames.
-        href?: Pathname | (string & {}) | null
+        href?: HREF | (string & {}) | null
       }
     }
   }

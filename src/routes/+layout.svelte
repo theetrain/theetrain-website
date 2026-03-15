@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import { page } from '$app/state'
   import Breadcrumbs from '$lib/Breadcrumbs.svelte'
   import '$lib/main.css'
+  import logo from '$lib/assets/logo.png?url'
+  import type { HREF } from '$lib/utils'
 
   let { children, data } = $props()
 
@@ -12,10 +14,22 @@
       return 'theetrain.ca'
     }
   })
+
+  /** If given path is the current page, use a hash link */
+  function checkCurrentPath(path: HREF) {
+    if (path === page.url.pathname)
+      return { href: '#main' as const, 'aria-current': 'page' as const }
+
+    return { href: path }
+  }
+
+  /** It is CURRENT YEAR */
+  let currentYear = new Date().getFullYear()
 </script>
 
 <svelte:head>
   <title>{title}</title>
+  <link rel="icon" href={logo} />
   <meta
     name="description"
     content="Enrico Sacchetti: software architect based in Ontario, Canada.
@@ -38,9 +52,12 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <header>
   <nav class="s-container" aria-label="top navigation">
-    <a href="/" id="site-title">Enrico Sacchetti</a>
+    <a {...checkCurrentPath('/')} id="site-title"
+      ><img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
+      Enrico Sacchetti</a
+    >
     <menu>
-      <a href="/blog">Blog</a>
+      <a {...checkCurrentPath('/blog')}>Blog</a>
     </menu>
   </nav>
 </header>
@@ -54,9 +71,42 @@ Specializing in front end web development, inclusive design, and design systems.
     Enrico Sacchetti
     <nav aria-label="footer navigation">
       <menu>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
+        <a {...checkCurrentPath('/')}>Home</a>
+        <a {...checkCurrentPath('/blog')}>Blog</a>
       </menu>
     </nav>
   </div>
+  <div class="s-container">
+    <p>
+      © {currentYear} Enrico Sacchetti. Code is MIT; content and graphics is CC BY-NC-ND 4.0.
+      <br />See
+      <a href="https://github.com/theetrain/theetrain-website/blob/main/LICENSE">license</a> for details.
+    </p>
+    <p>
+      Source: <a href="https://github.com/theetrain/theetrain-website"
+        >github.com/theetrain/theetrain-website</a
+      >
+    </p>
+  </div>
 </footer>
+
+<style>
+  #site-title {
+    font-size: 1.5rem;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  #logo {
+    height: 1lh;
+    width: auto;
+    vertical-align: top;
+  }
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1 1 auto;
+    }
+  }
+</style>
