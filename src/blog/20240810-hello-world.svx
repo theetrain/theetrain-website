@@ -3,21 +3,4 @@ title: Hello, blog!
 date_authored: 2026-03-12T01:06:47.829Z
 ---
 
-<script>
-  import Thing from '$blog/Thing.svelte'
-</script>
-
-<Thing />
-
-Some test markdown. And a snippet for Shiki:
-
-```html {3}
-<p>Test</p>
-
-<p>Another test</p>
-```
-
-Now that's some real Markdown right there. You could even `<span>add inline
-code</span>`.
-
-This site is styled using sugar.css; now I need to draw the rest of the owl.
+It's time to tip the scales.
