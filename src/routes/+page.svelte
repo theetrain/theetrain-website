@@ -25,28 +25,13 @@
   </div>
 </section>
 
-<h2>Latest blog posts:</h2>
+<h2>Latest blog posts</h2>
 
 <ul>
   <li><a href="/blog">My blog</a></li>
 </ul>
 
-<h2>My methodology:</h2>
-
-<ol>
-  <li>Avoid complexity.</li>
-  <li>Prioritize accessibility as early as possible.</li>
-  <li>Start with the customer's experience and work backwards to build the right solution.</li>
-  <li>
-    Regularly check in with team members to tighten feedback loops and address points of friction.
-  </li>
-  <li>
-    Provide a bridge between all disciplines to promote collaborative and highly contextual
-    workflows.
-  </li>
-</ol>
-
-<h2>Achievements</h2>
+<h2>Latest recording</h2>
 
 <iframe
   width="560"
@@ -59,9 +44,29 @@
   allowfullscreen
 ></iframe>
 
+<p><a href="https://www.youtube.com/@EnricoSacchetti">Watch more of my videos on YouTube.</a></p>
+
+<h2>My priorities</h2>
+
+<ol>
+  <li>Avoid complexity.</li>
+  <li>Accessibility is addressed early and often.</li>
+  <li>Start with the customer's experience and work backwards to build the right solution.</li>
+  <li>
+    Regularly check in with team members to tighten feedback loops and address points of friction.
+  </li>
+  <li>
+    Provide a bridge between all disciplines to promote collaborative and highly contextual
+    workflows.
+  </li>
+  <li>User experience is more important than developer experience.</li>
+</ol>
+
+<h2>Achievements</h2>
+
 <ul>
   <li>
-    Delivered a talk at Web Unleashed 2025: "Build Robust Components". <a
+    Web Unleashed 2025: "Build Robust Components". <a
       href="https://fitc.ca/presentation/build-robust-components/"
       >Session<span class="visually-hidden"> notes for talk "Build Robust Components"</span></a
     >
@@ -71,7 +76,7 @@
     >
   </li>
   <li>
-    Delivered a talk at Web Unleashed 2024: "Choosing a JS Framework in 2024".
+    Web Unleashed 2024: "Choosing a JS Framework in 2024".
     <a href="https://fitc.ca/presentation/choosing-a-js-framework-in-2024/"
       >Session<span class="visually-hidden">
         notes for talk "Choosing a JS Framework in 2024"</span
@@ -79,8 +84,10 @@
     >
   </li>
   <li>Planned and maintained 3 internal design systems of various scales since 2017.</li>
-  <li>Co-founded Design Systems Community and co-hosted over 17 meetups in Toronto.</li>
-  <li>Planned, delivered, and maintained over 10 greenfield CRUD applications.</li>
+  <li>
+    Co-founded <a href="//designsystems.community">Design Systems Community</a> and co-hosted over 17
+    meetups in Toronto.
+  </li>
 </ul>
 
 <h2>Connect with me</h2>
@@ -124,7 +131,8 @@
   }
 
   iframe {
-    width: clamp(560px, calc(100vh * 1.777 - 300px), 100%);
+    width: clamp(560px, calc(100vh * 1.5 - 300px), 100%);
     aspect-ratio: 1.777;
+    margin-bottom: 1rem;
   }
 </style>

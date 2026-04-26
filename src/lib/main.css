@@ -1,5 +1,10 @@
 @import './sugar.css';
 
+body {
+  /* To prevent layout shifts on short pages. */
+  overflow-y: scroll;
+}
+
 a {
   text-decoration: underline;
   border-bottom: 0;

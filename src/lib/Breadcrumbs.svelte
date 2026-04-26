@@ -9,8 +9,8 @@
 </script>
 
 {#if breadcrumbs.length > 0}
-  <nav class="s-container" aria-label="breadcrumb">
-    <ol>
+  <nav class="s-container breadcrumbs" aria-label="breadcrumb">
+    <ol class="crumbs">
       {#each breadcrumbs as { title, href }}
         {@const tailHref = page.url.pathname === href}
         <li>
@@ -25,3 +25,14 @@
     </ol>
   </nav>
 {/if}
+
+<style>
+  .breadcrumbs {
+    padding-top: 0;
+  }
+  .crumbs {
+    margin: 0;
+    min-height: var(--sugar-spacing-block);
+    align-items: center;
+  }
+</style>
