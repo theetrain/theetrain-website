@@ -16,7 +16,7 @@
   })
 
   /** If given path is the current page, use a hash link */
-  function checkCurrentPath(path: HREF) {
+  function navLink(path: HREF) {
     if (path === page.url.pathname)
       return { href: '#main' as const, 'aria-current': 'page' as const }
 
@@ -52,12 +52,12 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <header>
   <nav class="s-container" aria-label="top navigation">
-    <a {...checkCurrentPath('/')} id="site-title"
+    <a {...navLink('/')} id="site-title"
       ><img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
       Enrico Sacchetti</a
     >
     <menu>
-      <a {...checkCurrentPath('/blog')}>Blog</a>
+      <a {...navLink('/blog')}>Blog</a>
     </menu>
   </nav>
 </header>
@@ -71,16 +71,18 @@ Specializing in front end web development, inclusive design, and design systems.
     Enrico Sacchetti
     <nav aria-label="footer navigation">
       <menu>
-        <a {...checkCurrentPath('/')}>Home</a>
-        <a {...checkCurrentPath('/blog')}>Blog</a>
+        <a {...navLink('/')}>Home</a>
+        <a {...navLink('/blog')}>Blog</a>
+        <a {...navLink('/license')}>License</a>
       </menu>
     </nav>
   </div>
   <div class="s-container">
     <p>
-      © {currentYear} Enrico Sacchetti. Code is MIT; content and graphics is CC BY-NC-ND 4.0.
+      © {currentYear} Enrico Sacchetti. Code is MIT; content and graphics is CC BY-NC-ND 4.0. except when
+      specified.
       <br />See
-      <a href="https://github.com/theetrain/theetrain-website/blob/main/LICENSE">license</a> for details.
+      <a href="/license">license</a> for details.
     </p>
     <p>
       Source: <a href="https://github.com/theetrain/theetrain-website"
