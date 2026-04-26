@@ -25,82 +25,100 @@
   </div>
 </section>
 
-<h2>Latest blog posts</h2>
+<section aria-labelledby="connect-with-me">
+  <h2 id="connect-with-me">Connect with me</h2>
 
-<ul>
-  <li><a href="/blog">My blog</a></li>
-</ul>
+  <ul>
+    <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
+    <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
+    <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
+    <li>
+      <a rel="external" href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v"
+        >YouTube</a
+      >
+    </li>
+    <li><a rel="external" href="https://medium.com/@theetrain">Medium</a></li>
+  </ul>
+</section>
 
-<h2>Latest recording</h2>
+<section aria-labelledby="latest-blog-posts">
+  <h2 id="latest-blog-posts">Latest blog posts</h2>
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/Sf0DlcPPNTE?si=kYyVhEKkKqbVExx1"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+  <ul>
+    <li><a href="/blog">My blog</a></li>
+  </ul>
+</section>
 
-<p><a href="https://www.youtube.com/@EnricoSacchetti">Watch more of my videos on YouTube.</a></p>
+<section aria-labelledby="latest-recording">
+  <h2 id="latest-recording">Latest recording</h2>
 
-<h2>My priorities</h2>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/Sf0DlcPPNTE?si=kYyVhEKkKqbVExx1"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 
-<ol>
-  <li>Avoid complexity.</li>
-  <li>Accessibility is addressed early and often.</li>
-  <li>Start with the customer's experience and work backwards to build the right solution.</li>
-  <li>
-    Regularly check in with team members to tighten feedback loops and address points of friction.
-  </li>
-  <li>
-    Provide a bridge between all disciplines to promote collaborative and highly contextual
-    workflows.
-  </li>
-  <li>User experience is more important than developer experience.</li>
-</ol>
-
-<h2>Achievements</h2>
-
-<ul>
-  <li>
-    Web Unleashed 2025: "Build Robust Components". <a
-      href="https://fitc.ca/presentation/build-robust-components/"
-      >Session<span class="visually-hidden"> notes for talk "Build Robust Components"</span></a
+  <p>
+    <a rel="external" href="https://www.youtube.com/@EnricoSacchetti"
+      >Watch more of my videos on YouTube.</a
     >
-    |
-    <a href="https://youtu.be/Sf0DlcPPNTE?si=3bnx3eR0rCybMsxu"
-      >Recording<span class="visually-hidden"> of talk "Build Robust Components"</span></a
-    >
-  </li>
-  <li>
-    Web Unleashed 2024: "Choosing a JS Framework in 2024".
-    <a href="https://fitc.ca/presentation/choosing-a-js-framework-in-2024/"
-      >Session<span class="visually-hidden">
-        notes for talk "Choosing a JS Framework in 2024"</span
-      ></a
-    >
-  </li>
-  <li>Planned and maintained 3 internal design systems of various scales since 2017.</li>
-  <li>
-    Co-founded <a href="//designsystems.community">Design Systems Community</a> and co-hosted over 17
-    meetups in Toronto.
-  </li>
-</ul>
+  </p>
+</section>
 
-<h2>Connect with me</h2>
+<section aria-describedby="my-priorities">
+  <h2 id="my-priorities">My priorities</h2>
 
-<ul>
-  <li><a href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
-  <li><a href="https://github.com/theetrain">GitHub</a></li>
-  <li><a href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
-  <li>
-    <a href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a>
-  </li>
-  <li><a href="https://medium.com/@theetrain">Medium</a></li>
-</ul>
+  <ol>
+    <li>Avoid complexity.</li>
+    <li>Accessibility is addressed early and often.</li>
+    <li>Start with the customer's experience and work backwards to build the right solution.</li>
+    <li>
+      Regularly check in with team members to tighten feedback loops and address points of friction.
+    </li>
+    <li>
+      Provide a bridge between all disciplines to promote collaborative and highly contextual
+      workflows.
+    </li>
+    <li>User experience is more important than developer experience.</li>
+  </ol>
+</section>
+
+<section aria-describedby="achievements">
+  <h2 id="achievements">Achievements</h2>
+
+  <ul>
+    <li>
+      Web Unleashed 2025: "Build Robust Components". <a
+        rel="external"
+        href="https://fitc.ca/presentation/build-robust-components/"
+        >Session<span class="visually-hidden"> notes for talk "Build Robust Components"</span></a
+      >
+      |
+      <a rel="external" href="https://youtu.be/Sf0DlcPPNTE?si=3bnx3eR0rCybMsxu"
+        >Recording<span class="visually-hidden"> of talk "Build Robust Components"</span></a
+      >
+    </li>
+    <li>
+      Web Unleashed 2024: "Choosing a JS Framework in 2024".
+      <a rel="external" href="https://fitc.ca/presentation/choosing-a-js-framework-in-2024/"
+        >Session<span class="visually-hidden">
+          notes for talk "Choosing a JS Framework in 2024"</span
+        ></a
+      >
+    </li>
+    <li>Planned and maintained 3 internal design systems of various scales since 2017.</li>
+    <li>
+      Co-founded <a rel="external" href="https://designsystems.community"
+        >Design Systems Community</a
+      > and co-hosted over 17 meetups in Toronto.
+    </li>
+  </ul>
+</section>
 
 <style>
   #portrait {
