@@ -2,7 +2,8 @@ import type { Breadcrumb } from './types'
 
 const staticRoutes = new Map<string, Breadcrumb>([
   ['', { title: 'Home', href: '/' }],
-  ['blog', { title: 'Blog', href: '/blog' }]
+  ['blog', { title: 'Blog', href: '/blog' }],
+  ['license', { title: 'License', href: '/license' }]
 ])
 
 /**
@@ -20,8 +21,13 @@ export function buildStaticBreadcrumbs(url: URL): Breadcrumb[] {
   const breadcrumbs: Breadcrumb[] = []
 
   for (const segment of segments) {
+    // Iterate through non-static routes
     if (!staticRoutes.has(segment)) continue
-    breadcrumbs.push(staticRoutes.get(segment))
+
+    // Return static route
+    const staticBreadcrumb = staticRoutes.get(segment)
+    if (!staticBreadcrumb) continue
+    breadcrumbs.push(staticBreadcrumb)
   }
 
   return breadcrumbs
