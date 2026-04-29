@@ -14,5 +14,5 @@
 <h2>Exceptions</h2>
 
 <ul>
-  <li>Bluesky logo</li>
+  <li>Bluesky, GitHub, LinkedIn, YouTube logos</li>
 </ul>

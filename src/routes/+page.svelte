@@ -1,4 +1,9 @@
 <script>
+  import bluesky from '$lib/assets/icons/bluesky.svg?raw'
+  import github from '$lib/assets/icons/github.svg?raw'
+  import linkedin from '$lib/assets/icons/linkedin.svg?raw'
+  import youtube from '$lib/assets/icons/youtube.svg?raw'
+
   /** Years of experience */
   const yearsXp = new Date().getFullYear() - new Date('2014-02-01').getFullYear()
 </script>
@@ -16,29 +21,35 @@
     </div>
     <div id="intro">
       <p>
-        Hi, I'm a software architect with {yearsXp} years of professional experience. I help eliminate
-        frustration on the web by building scalable tools and patterns for teams and online consumers.
+        I'm a software architect with {yearsXp} years of professional experience. I help eliminate frustration
+        on the web by building scalable tools and patterns for teams and online consumers.
       </p>
 
       <p>Let's build a better web, together.</p>
+
+      <p>
+        Find me on
+        <span class="nowrap"
+          >{@html bluesky}
+          <a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></span
+        >,
+        <span class="nowrap"
+          >{@html github} <a rel="external" href="https://github.com/theetrain">GitHub</a></span
+        >,
+        <span class="nowrap"
+          >{@html linkedin}
+          <a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></span
+        >, or
+        <span class="nowrap">
+          {@html youtube}
+          <a
+            rel="external"
+            href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a
+          >
+        </span>.
+      </p>
     </div>
   </div>
-</section>
-
-<section aria-labelledby="connect-with-me">
-  <h2 id="connect-with-me">Connect with me</h2>
-
-  <ul>
-    <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
-    <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
-    <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
-    <li>
-      <a rel="external" href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v"
-        >YouTube</a
-      >
-    </li>
-    <li><a rel="external" href="https://medium.com/@theetrain">Medium</a></li>
-  </ul>
 </section>
 
 <section aria-labelledby="latest-blog-posts">
@@ -111,7 +122,6 @@
         ></a
       >
     </li>
-    <li>Planned and maintained 3 internal design systems of various scales since 2017.</li>
     <li>
       Co-founded <a rel="external" href="https://designsystems.community"
         >Design Systems Community</a
@@ -125,6 +135,7 @@
     width: clamp(450px, 50%, 100%);
     flex-basis: 300px;
     flex-grow: 0;
+    align-self: flex-start;
 
     :global(picture) {
       display: inline-block;
@@ -144,7 +155,7 @@
   }
 
   .responsive-row-50 {
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
   }
 
