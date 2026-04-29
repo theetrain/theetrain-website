@@ -4,6 +4,8 @@
   import linkedin from '$lib/assets/icons/linkedin.svg?raw'
   import youtube from '$lib/assets/icons/youtube.svg?raw'
 
+  const { data } = $props()
+
   /** Years of experience */
   const yearsXp = new Date().getFullYear() - new Date('2014-02-01').getFullYear()
 </script>
@@ -56,7 +58,14 @@
   <h2 id="latest-blog-posts">Latest blog posts</h2>
 
   <ul>
-    <li><a href="/blog">My blog</a></li>
+    {#each data.latestPosts as post}
+      {@const postDate = new Date(post.date_authored).toLocaleDateString('en-CA', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}
+      <li><a href="/blog/{post.slug}">{postDate} - {post.title}</a></li>
+    {/each}
   </ul>
 </section>
 
