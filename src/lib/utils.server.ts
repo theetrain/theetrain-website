@@ -1,6 +1,6 @@
 import type { Breadcrumb } from './types'
 
-const staticRoutes = new Map<string, Breadcrumb>([
+export const staticRoutes = new Map<string, Breadcrumb>([
   ['', { title: 'Home', href: '/' }],
   ['blog', { title: 'Blog', href: '/blog' }],
   ['license', { title: 'License', href: '/license' }]

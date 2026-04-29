@@ -10,6 +10,8 @@
   let title = $derived.by(() => {
     if (page.data.title) {
       return `${page.data.title} - theetrain.ca`
+    } else if (data.staticTitle) {
+      return `${data.staticTitle} - theetrain.ca`
     } else {
       return 'theetrain.ca'
     }
