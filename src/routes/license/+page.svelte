@@ -14,5 +14,5 @@
 <h2>Exceptions</h2>
 
 <ul>
-  <li>Bluesky, GitHub, LinkedIn, YouTube logos</li>
+  <li>Bluesky, GitHub, LinkedIn, and YouTube logos are owned by their respective parties.</li>
 </ul>

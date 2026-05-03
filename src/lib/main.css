@@ -15,6 +15,10 @@ body {
 a {
   text-decoration: underline;
   border-bottom: 0;
+
+  &[aria-current='page'] {
+    text-decoration: underline overline;
+  }
 }
 
 p {

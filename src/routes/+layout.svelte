@@ -54,10 +54,10 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <header>
   <nav class="s-container" aria-label="top navigation">
-    <a {...navLink('/')} id="site-title"
-      ><img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
-      Enrico Sacchetti</a
-    >
+    <span id="site-title">
+      <img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
+      <a {...navLink('/')}> Enrico Sacchetti</a>
+    </span>
     <menu>
       <a {...navLink('/blog')}>Blog</a>
     </menu>
@@ -97,7 +97,6 @@ Specializing in front end web development, inclusive design, and design systems.
 <style>
   #site-title {
     font-size: 1.5rem;
-    text-decoration: none;
     line-height: 1.2;
     padding: 8px 0;
   }

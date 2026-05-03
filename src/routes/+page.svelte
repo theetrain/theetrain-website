@@ -24,7 +24,7 @@
     <div id="intro">
       <p>
         I'm a software architect with {yearsXp} years of professional experience. I help eliminate frustration
-        on the web by building scalable tools and patterns for teams and online consumers.
+        on the web by building scalable tools and patterns for teams that emphasize inclusive design.
       </p>
 
       <p>Let's build a better web, together.</p>
@@ -93,9 +93,10 @@
 <section aria-describedby="my-priorities">
   <h2 id="my-priorities">My priorities</h2>
 
-  <ol>
+  <ul>
     <li>Avoid complexity.</li>
     <li>Accessibility is addressed early and often.</li>
+    <li>User experience is more important than developer experience.</li>
     <li>Start with the customer's experience and work backwards to build the right solution.</li>
     <li>
       Regularly check in with team members to tighten feedback loops and address points of friction.
@@ -104,8 +105,7 @@
       Provide a bridge between all disciplines to promote collaborative and highly contextual
       workflows.
     </li>
-    <li>User experience is more important than developer experience.</li>
-  </ol>
+  </ul>
 </section>
 
 <section aria-describedby="achievements">
