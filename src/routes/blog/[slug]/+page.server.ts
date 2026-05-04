@@ -20,11 +20,19 @@ export const load: PageServerLoad = async ({ params, url }) => {
 
   if (redirectPath) throw redirect(301, `/blog/${redirectPath}`)
 
+  const formatter = Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+
   return {
     path: post._meta.path,
     title: post.title,
     slug: post.slug,
-    datePublished: post.date_authored,
-    dateUpdated: post.date_modified
+    datePublishedIso: post.date_authored.toISOString(),
+    datePublishedReadable: formatter.format(post.date_authored),
+    dateUpdatedIso: post.date_modified?.toISOString(),
+    dateUpdatedReadable: formatter.format(post.date_modified)
   }
 }

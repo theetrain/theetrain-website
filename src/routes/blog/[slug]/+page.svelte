@@ -44,6 +44,12 @@
 
 <article>
   <h1>{data.title}</h1>
+  <p>
+    Published: <time datetime={data.datePublishedIso}>{data.datePublishedReadable}</time>
+  </p>
+  {#if data.dateUpdatedIso}
+    <p>Updated <time datetime={data.dateUpdatedIso}>{data.dateUpdatedReadable}</time></p>
+  {/if}
 
   <Post />
 </article>
