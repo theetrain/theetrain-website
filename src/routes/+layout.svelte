@@ -3,7 +3,7 @@
   import Breadcrumbs from '$lib/Breadcrumbs.svelte'
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
-  import type { HREF } from '$lib/utils'
+  import { CANONICAL, type HREF } from '$lib/utils'
 
   let { children, data } = $props()
 
@@ -32,6 +32,7 @@
 <svelte:head>
   <title>{title}</title>
   <link rel="icon" href={logo} />
+  <link rel="canonical" href={CANONICAL} />
   <meta
     name="description"
     content="Enrico Sacchetti: software architect based in Ontario, Canada.

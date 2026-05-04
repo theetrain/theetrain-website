@@ -1,8 +1,49 @@
 <script lang="ts">
+  import { CANONICAL } from '$lib/utils.js'
+  import { type WithContext, type BlogPosting } from 'schema-dts'
+  import enricoAvatar from '$lib/assets/enrico.jpg?url'
+
   const { data } = $props()
   const Post = $derived(data.Post)
+
+  const blogPath = $derived(`${CANONICAL}/${data.slug}`)
+  const wordCount = $derived(123)
+
+  const jsonLd: WithContext<BlogPosting> = $derived({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': blogPath,
+    name: `${data.title}`,
+    datePublished: `${data.datePublished}`,
+    dateModified: `${data.dateUpdated ?? data.datePublished}`,
+    author: {
+      '@type': 'Person',
+      name: 'Enrico Sacchetti',
+      image: {
+        '@type': 'ImageObject',
+        '@id': `${enricoAvatar}`,
+        url: `${enricoAvatar}`,
+        height: 1000,
+        width: 1000
+      }
+    },
+    url: blogPath,
+    wordCount
+  })
+
+  const jsonLdScript = $derived(
+    `<script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>`
+  )
+
+  $inspect(jsonLd)
 </script>
 
-<h1>{data.title}</h1>
+<svelte:head>
+  {@html jsonLdScript}
+</svelte:head>
 
-<Post />
+<article>
+  <h1>{data.title}</h1>
+
+  <Post />
+</article>
