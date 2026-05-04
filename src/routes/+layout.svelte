@@ -4,6 +4,7 @@
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
   import { CANONICAL, type HREF } from '$lib/utils'
+  import fontPath from '$lib/assets/fonts/lexend-latin-400-normal.ttf?url'
 
   let { children, data } = $props()
 
@@ -51,6 +52,8 @@ Specializing in front end web development, inclusive design, and design systems.
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
     window.matchMedia('(prefers-color-scheme: dark)').matches
   </script>
+
+  <link rel="preload" href={fontPath} as="font" type="font/ttf" />
 </svelte:head>
 
 <header>

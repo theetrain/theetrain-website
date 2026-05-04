@@ -1,12 +1,16 @@
+@import './fonts.css';
 @import './sugar.css';
 
 :root {
-  --body-line-height: 1.8;
+  --body-line-height: 1.9;
 }
 
 body {
   /* To prevent layout shifts on short pages. */
   overflow-y: scroll;
+  font-family: 'Lexend', Helvetica, Arial, sans-serif;
+  font-size: 125%;
+  font-size-adjust: from-font;
 }
 
 /*
@@ -21,7 +25,9 @@ a {
   }
 }
 
-p {
+p,
+ul,
+ol {
   line-height: var(--body-line-height);
 }
 p svg {
