@@ -69,6 +69,11 @@ section :where(ul, ol) {
   }
 }
 
+pre.shiki {
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 /* 
   MARK: Utilities
 */
@@ -89,6 +94,10 @@ section :where(ul, ol) {
 
 .nowrap {
   white-space: nowrap;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 .visually-hidden {

@@ -1,6 +1,125 @@
 ---
 title: Hello, blog!
-date_authored: 2026-03-12T01:06:47.829Z
+date_authored: 2026-05-03T00:54:01.911Z
+date_modified: 2026-05-05T03:37:35.477Z
 ---
 
-It's time to tip the scales.
+<script>
+  // Temporary measure until I decide how to integrate enhanced:img with mdsvex.
+  // See https://github.com/pngwn/MDsveX/issues/750
+  import image from '$lib/assets/blog/20260502 splash.avif?enhanced';
+</script>
+
+<figure>
+  <picture>
+    <source srcset={image.sources.avif} type="image/avif" />
+    <source srcset={image.sources.webp} type="image/webp" />
+    <img src={image.img.src} alt="Aerial view of the autumn colours in northern Ontario" width={image.img.w} height={image.img.h} />
+  </picture>
+  <figcaption>"Aerial view of the autumn colours in northern Ontario" by Derek Sutton <a rel="external" href="https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY">(source)</a></figcaption>
+</figure>
+
+It has been many years since I had my own custom website. For a long time, I had
+[theetrain.ca](https://theetrain.ca) pointing to a straightforward
+[about.me](https://about.me/enricosacchetti) page that acted as a small link
+farm. And I could continue to have that since it served its purpose well;
+corroborate my identity whenever I meet people or hand out business cards.
+
+My main motivation for starting my own custom site was to own my own content and
+start writing again. If you're reading this, then mission accomplished! I have
+a few articles published on Medium that I hope to migrate here and take proper
+ownership of my writings. They're still published if you would like to check
+them out at [medium.com/@theetrain](https://medium.com/@theetrain).
+
+I could have chosen a tailor-made framework for blogging such as Ghost, Astro,
+or WordPress, but I decided to use SvelteKit since I'm a Svelte ambassador and
+want to remain connected to the project's latest features. I eventually want to make my
+own UI library and hope this website could serve as a testing ground for that,
+and I may blog more about those ambitions in the near future.
+
+That brings me to this website; here is a breakdown of the tools I've selected
+for its initial build:
+
+- [SvelteKit](https://svelte.dev/): to prerender pages and serve a robust site that benefits
+  users with or without JavaScript enabled or available.
+- [mdsvex](https://mdsvex.pngwn.io/): author content using markdown and
+  as-needed Svelte components, and prerender code fences.
+- [Content Collections](https://www.content-collections.dev/): rather than roll
+  my own, I went with an opinionated library that closely resembles Astro
+  content collections; that way I only need to maintain content in my `/blog`
+  route and use a streamlined API to find and serve pages.
+- [Sugar.css](https://sugar-css.com/): a minimal CSS framework that primarily
+  acts as a classless library. I'm aligned with its goal of emphasizing HTML,
+  accessible layouts, and that "design is based on rules rather than feelings".
+- [fontless](https://npmx.dev/package/fontless): a Vite plugin that handles the
+  very difficult challenge of providing fallback fonts and sizing them in such
+  as way to prevent layout shifts during font swap.
+
+`SvelteKit` aligns very closely with my values as a front end developer;
+optimize as much as possible at build time, and deliver a great user experience
+without compromising heavily on developer experience. It's particularly great
+for building Node.js applications; all routes are server-rendered by default,
+forms are first-class patterns, and navigating with plain anchor links will
+progressively enhance to client-side navigation once the page hydrates. Users
+with degraded connections can still request or mutate information since those
+actions still process server-side. You can interpret "Svelte" in multiple ways;
+for me it's about reducing authored code to the smallest amount that gets served
+to users, reducing your supply chain footprint, reducing your mental load while
+solving problems, and reducing your attempted solutions to the ones that benefit
+users most (this includes [accessibility
+linting](https://svelte.dev/docs/svelte/compiler-warnings)).
+
+This site's design is a work in progress that I decided to improve iteratively
+from a functional base; which is why I chose Sugar.css.
+
+`fontless` has been particularly helpful, right as I was finishing up my initial
+site design (as well as this blog post) I realize it paragraphs of text were
+unpleasant to read. I applied a unitless line height of `1.8` and went through
+the toil of setting up my preferred font `Lexend` and its `@font-face`
+declarations, downloading and serving the font myself, choosing a fallback font,
+measuring and resizing the fallback font to avoid layout shifts. It's a whole
+ordeal, but `fontless` allows me to achieve all of that in one CSS rule:
+
+```css
+body {
+  /* To prevent layout shifts on short pages. */
+  overflow-y: scroll;
+  font-family: 'Lexend', Helvetica, Arial, sans-serif;
+  font-size: 125%;
+}
+```
+
+I only needed to define `'Lexend', sans-serif;`, really, but I explicitly
+ordered some preferred system fonts and let `fontless` handle all the rest.
+Build time optimizations are great! What's not so great is my
+[SBOM](https://en.wikipedia.org/wiki/Software_supply_chain); at the time of this
+writing, this project has 806 total dependencies; which includes transitive
+dependencies. I would prefer to keep that under 500, and maybe I can go into
+more detail in a future blog post. Importantly, even though a fraction of the
+named exports from a fraction of this project's dependencies may end up on
+production, I don't want my development machine to fall victim to a supply chain
+attack for the rest of my installed packages. You're welcome to measure
+your own project's dependencies by running either one of these commands:
+
+```sh
+# npm
+npm ls --all | grep -v deduped | grep -v "UNMET OPTIONAL" | wc -l
+
+# pnpm
+pnpm list -r --parseable --depth Infinity --no-optional | wc -l
+```
+
+Last, but not least, this website is my garden. LLM use has been very limited to
+a few queries or debugging sessions, and hardly any code was generated or put to
+use via agents nor autocomplete. More practically, this site's content dictated
+its design and functionality needs. From the content, I worked backwards to
+their solution on how to best serve
+information and promote the points I want people to most easily reach. I'm
+unable to offload my own thoughts and experiences to a ghost writer or agent.
+Some problems may have led to a few LLM consultations like formatting dates,
+debugging code highlighting, or
+understanding the nuances of font swapping.
+
+This website is open source for your educational interests, and you're welcome
+to reference its code for your own work:
+[github.com/theetrain/theetrain-website](https://github.com/theetrain/theetrain-website).

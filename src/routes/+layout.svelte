@@ -71,12 +71,28 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <footer class="responsive-row">
   <div class="s-container">
-    Enrico Sacchetti
-    <nav aria-label="footer navigation">
+    <span id="footer-site-nav">Enrico Sacchetti, site navigation</span>
+    <nav aria-labelledby="footer-site-nav">
       <menu>
-        <a {...navLink('/')}>Home</a>
-        <a {...navLink('/blog')}>Blog</a>
-        <a {...navLink('/license')}>License</a>
+        <li><a {...navLink('/')}>Home</a></li>
+        <li><a {...navLink('/blog')}>Blog</a></li>
+        <li><a {...navLink('/license')}>License</a></li>
+      </menu>
+    </nav>
+  </div>
+  <div class="s-container">
+    <span id="footer-social-links">Social links</span>
+    <nav aria-labelledby="footer-social-links">
+      <menu>
+        <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
+        <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
+        <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
+        <li>
+          <a
+            rel="external"
+            href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a
+          >
+        </li>
       </menu>
     </nav>
   </div>

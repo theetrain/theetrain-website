@@ -7,6 +7,7 @@
   const Post = $derived(data.Post)
 
   const blogPath = $derived(`${CANONICAL}/${data.slug}`)
+  /** TODO */
   const wordCount = $derived(123)
 
   const jsonLd: WithContext<BlogPosting> = $derived({
@@ -14,8 +15,8 @@
     '@type': 'BlogPosting',
     '@id': blogPath,
     name: `${data.title}`,
-    datePublished: `${data.datePublished}`,
-    dateModified: `${data.dateUpdated ?? data.datePublished}`,
+    datePublished: `${data.datePublishedIso}`,
+    dateModified: `${data.dateUpdatedIso ?? data.datePublishedIso}`,
     author: {
       '@type': 'Person',
       name: 'Enrico Sacchetti',
@@ -34,8 +35,6 @@
   const jsonLdScript = $derived(
     `<script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>`
   )
-
-  $inspect(jsonLd)
 </script>
 
 <svelte:head>
