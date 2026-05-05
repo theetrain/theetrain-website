@@ -1,4 +1,3 @@
-@import './fonts.css';
 @import './sugar.css';
 
 :root {
@@ -10,7 +9,6 @@ body {
   overflow-y: scroll;
   font-family: 'Lexend', Helvetica, Arial, sans-serif;
   font-size: 125%;
-  font-size-adjust: from-font;
 }
 
 /*
