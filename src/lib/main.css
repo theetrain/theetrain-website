@@ -8,7 +8,7 @@ body {
   /* To prevent layout shifts on short pages. */
   overflow-y: scroll;
   font-family: 'Lexend', Helvetica, Arial, sans-serif;
-  font-size: 125%;
+  font-size: 110%;
 }
 
 /*
@@ -46,6 +46,14 @@ pre.shiki code {
 
 section :where(ul, ol) {
   line-height: var(--body-line-height);
+}
+
+:where(code, kbd, samp) {
+  color: var(--s-color-text);
+}
+
+:where(pre) {
+  overflow: auto;
 }
 
 @media (prefers-color-scheme: dark) {

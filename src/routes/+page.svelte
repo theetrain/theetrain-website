@@ -159,7 +159,7 @@
   }
 
   #intro {
-    font-size: clamp(1rem, 2vw + 0.25rem, 1.3rem);
+    font-size: 1.25rem;
     text-wrap: balance;
   }
 
