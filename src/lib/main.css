@@ -56,6 +56,15 @@ section :where(ul, ol) {
   overflow: auto;
 }
 
+:where(main > article) {
+  margin-inline: calc((var(--sugar-spacing-inline) * -1) / 2);
+  padding-inline: calc((var(--sugar-spacing-inline) / 2));
+}
+
+:where(footer nav menu) {
+  margin: 0.25rem 0 1.25rem;
+}
+
 @media (prefers-color-scheme: dark) {
   .shiki,
   .shiki span {
