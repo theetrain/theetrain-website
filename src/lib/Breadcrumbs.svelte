@@ -26,8 +26,8 @@
 
 <style>
   .breadcrumbs {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   .crumbs {
     margin: 0;

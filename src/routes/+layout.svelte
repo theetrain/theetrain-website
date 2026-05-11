@@ -116,6 +116,14 @@ Specializing in front end web development, inclusive design, and design systems.
     font-size: 1.5rem;
     line-height: 1.2;
     padding: 8px 0;
+
+    a {
+      color: inherit;
+
+      &[aria-current='page']:not(:focus-visible) {
+        outline: inherit;
+      }
+    }
   }
   #logo {
     height: 1lh;
