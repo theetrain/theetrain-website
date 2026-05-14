@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import Breadcrumbs from '$lib/Breadcrumbs.svelte'
+  import Breadcrumbs from './Breadcrumbs.svelte'
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
   import { CANONICAL, type HREF } from '$lib/utils'
@@ -60,7 +60,7 @@ Specializing in front end web development, inclusive design, and design systems.
       <a {...navLink('/')}> Enrico Sacchetti</a>
     </span>
     <menu>
-      <a {...navLink('/blog')}>Blog</a>
+      <li><a {...navLink('/blog')}>Blog</a></li>
     </menu>
   </nav>
 </header>

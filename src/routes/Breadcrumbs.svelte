@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import type { Breadcrumb } from './types'
+  import type { Breadcrumb } from '$lib/types'
 
   type Props = {
     breadcrumbs: Breadcrumb[]
