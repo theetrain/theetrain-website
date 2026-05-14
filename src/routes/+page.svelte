@@ -23,8 +23,9 @@
     </div>
     <div id="intro">
       <p>
-        I'm a software architect with {yearsXp} years of professional experience. I help eliminate frustration
-        on the web by building scalable tools and patterns for teams that emphasize inclusive design.
+        I'm a software architect and front end developer with {yearsXp} years of professional experience.
+        I help eliminate frustration on the web by building scalable tools and patterns for teams that
+        emphasize inclusive design.
       </p>
 
       <p>Let's build a better web, together.</p>

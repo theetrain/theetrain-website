@@ -2,14 +2,6 @@
 
 Website source for <https://theetrain.ca>.
 
-## Todo
-
-- [x] Logo
-- [x] Portrait
-- [ ] First blog
-  - [x] Date authored
-  - [ ] Date modified
-
 ## ⚖️ License
 
 This project is dual-licensed:
