@@ -4,6 +4,7 @@
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
   import { CANONICAL, type HREF } from '$lib/utils'
+  import FontToggle from './FontToggle.svelte'
 
   let { children, data } = $props()
 
@@ -54,6 +55,12 @@ Specializing in front end web development, inclusive design, and design systems.
 </svelte:head>
 
 <header>
+  <div id="settings">
+    <div class="s-container responsive-row text-center">
+      <a href="#main">Skip to main content</a>
+      <FontToggle />
+    </div>
+  </div>
   <nav class="s-container" aria-label="top navigation">
     <span id="site-title">
       <img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
@@ -129,5 +136,9 @@ Specializing in front end web development, inclusive design, and design systems.
     height: 1lh;
     width: auto;
     vertical-align: top;
+  }
+  #settings {
+    background-color: var(--bg-secondary);
+    padding-block: 0.5rem;
   }
 </style>
