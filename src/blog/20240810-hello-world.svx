@@ -1,7 +1,7 @@
 ---
 title: Hello, blog!
 date_authored: 2026-05-03T00:54:01.911Z
-date_modified: 2026-05-05T03:37:35.477Z
+date_modified: 2026-05-17T02:58:11.204Z
 ---
 
 <script>
@@ -37,6 +37,8 @@ want to remain connected to the project's latest features. I eventually want to 
 own UI library and hope this website could serve as a testing ground for that,
 and I may blog more about those ambitions in the near future.
 
+## How I chose tools for my custom blog
+
 That brings me to this website; here is a breakdown of the tools I've selected
 for its initial build:
 
@@ -62,17 +64,25 @@ for building Node.js applications; all routes are server-rendered by default,
 forms are first-class patterns, and navigating with plain anchor links will
 progressively enhance to client-side navigation once the page hydrates. Users
 with degraded connections can still request or mutate information since those
-actions still process server-side. You can interpret "Svelte" in multiple ways;
-for me it's about reducing authored code to the smallest amount that gets served
-to users, reducing your supply chain footprint, reducing your mental load while
-solving problems, and reducing your attempted solutions to the ones that benefit
-users most (this includes [accessibility
+actions still process server-side.
+
+"Svelte" can be interpreted in multiple ways; for me it's about:
+
+1. Reducing authored code to the smallest amount that gets served to users.
+2. Reducing your supply chain footprint.
+3. Reducing your mental load while solving problems
+4. Reducing your attempted solutions to the ones that benefit users most (this
+includes [accessibility
 linting](https://svelte.dev/docs/svelte/compiler-warnings)).
+
+Less is less, and that is good.
+
+## Style and typography
 
 This site's design is a work in progress that I decided to improve iteratively
 from a functional base; which is why I chose Sugar.css.
 
-`fontless` has been particularly helpful, right as I was finishing up my initial
+`fontless` is particularly helpful, right as I was finishing up my initial
 site design (as well as this blog post) I realize it paragraphs of text were
 unpleasant to read. I applied a unitless line height of `1.8` and went through
 the toil of setting up my preferred font `Lexend` and its `@font-face`
@@ -85,17 +95,40 @@ body {
   /* To prevent layout shifts on short pages. */
   overflow-y: scroll;
   font-family: 'Lexend', Helvetica, Arial, sans-serif;
-  font-size: 125%;
+  font-size: 110%;
 }
 ```
 
 I only needed to define `'Lexend', sans-serif;`, really, but I explicitly
-ordered some preferred system fonts and let `fontless` handle all the rest.
+ordered some preferred system fonts and let `fontless` handle all the rest. I
+also added a toggle to allow users to switch between a serif and sans font. The
+toggle sets `data-font-style` on the `<html>` tag, and my CSS is very
+straightforward while `fontless` handles all the `@font-face` rules at build time:
+
+```css
+:root {
+  /* Variables and other stuff */
+
+  &,
+  &[data-font-style='serif'] {
+    font-family: 'Source Serif 4', serif;
+  }
+
+  &[data-font-style='sans'] {
+    font-family: 'Lexend', Helvetica, Arial, sans-serif;
+  }
+}
+```
+
+## Security and maintenance
+
 Build time optimizations are great! What's not so great is my
 [SBOM](https://en.wikipedia.org/wiki/Software_supply_chain); at the time of this
 writing, this project has 806 total dependencies; which includes transitive
 dependencies. I would prefer to keep that under 500, and maybe I can go into
-more detail in a future blog post. Importantly, even though a fraction of the
+more detail in a future blog post.
+
+Importantly, even though a fraction of the
 named exports from a fraction of this project's dependencies may end up on
 production, I don't want my development machine to fall victim to a supply chain
 attack for the rest of my installed packages. You're welcome to measure
@@ -111,14 +144,10 @@ pnpm list -r --parseable --depth Infinity --no-optional | wc -l
 
 Last, but not least, this website is my garden. LLM use has been very limited to
 a few queries or debugging sessions, and hardly any code was generated or put to
-use via agents nor autocomplete. More practically, this site's content dictated
-its design and functionality needs. From the content, I worked backwards to
-their solution on how to best serve
-information and promote the points I want people to most easily reach. I'm
-unable to offload my own thoughts and experiences to a ghost writer or agent.
-Some problems may have led to a few LLM consultations like formatting dates,
-debugging code highlighting, or
-understanding the nuances of font swapping.
+use via agents or autocomplete. More practically, this site's content dictates
+its design and functionality needs. From the content, I work backwards to
+their solution on how to best serve information and promote the points I want
+people to most easily reach.
 
 This website is open source for your educational interests, and you're welcome
 to reference its code for your own work:
