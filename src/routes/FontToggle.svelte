@@ -18,7 +18,7 @@
       userStyle = styles.serif
     }
     document.documentElement.dataset[FONT_DATASET_KEY] = userStyle.label
-    localStorage.set(FONT_STORAGE_KEY, userStyle.label)
+    localStorage.setItem(FONT_STORAGE_KEY, userStyle.label)
   }
 
   let ready = $state(false)
@@ -42,11 +42,11 @@
 <svelte:head>
   <script>
     // Get initial font preference
-    const fontPreference = localStorage.get('font')
+    const fontPreference = localStorage.getItem('font')
 
     if (!fontPreference) {
       document.documentElement.dataset.fontStyle = 'serif'
-    } else if (fontPreference === 'serif' || fontPreferece === 'sans') {
+    } else if (fontPreference === 'serif' || fontPreference === 'sans') {
       document.documentElement.dataset.fontStyle = fontPreference
     }
   </script>
