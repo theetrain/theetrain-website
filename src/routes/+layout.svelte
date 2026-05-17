@@ -57,7 +57,7 @@ Specializing in front end web development, inclusive design, and design systems.
 <header>
   <div id="settings">
     <div class="s-container responsive-row text-center">
-      <a href="#main">Skip to main content</a>
+      <div><a href="#main">Skip to main content</a></div>
       <FontToggle />
     </div>
   </div>

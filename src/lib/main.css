@@ -30,6 +30,12 @@ body {
   font-size: 110%;
 }
 
+@media screen and (orientation: landscape) and (height < 45rem) {
+  body > header {
+    position: static;
+  }
+}
+
 /*
   MARK: Elements
 */
