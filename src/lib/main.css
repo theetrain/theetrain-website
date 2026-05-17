@@ -27,7 +27,6 @@
 body {
   /* To prevent layout shifts on short pages. */
   overflow-y: scroll;
-  font-family: 'Lexend', Helvetica, Arial, sans-serif;
   font-size: 110%;
 }
 
