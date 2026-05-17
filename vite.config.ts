@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     enhancedImages(),
     sveltekit(),
-    process.env.VITEST ? undefined : contentCollections(),
+    process.env['VITEST'] ? undefined : contentCollections(),
     fontless()
   ]
 })
