@@ -121,6 +121,16 @@ nav menu {
   list-style-type: '';
 }
 
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--s-color-link);
+  color: var(--s-color-bg);
+  border: 1px solid var(--s-color-link);
+  border-radius: 6px;
+  min-height: 2.75rem;
+  font-size: inherit;
+}
+
 /*
   MARK: Code fences
 */
@@ -148,6 +158,8 @@ pre.shiki {
 /*
   MARK: Utilities
 */
+
+/* Flex-related */
 .responsive-row,
 .responsive-row-50 {
   display: flex;
@@ -161,6 +173,18 @@ pre.shiki {
   & > * {
     flex: 1 1 50%;
   }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .nowrap {
@@ -181,10 +205,4 @@ pre.shiki {
   width: 1px;
 }
 
-.text-center {
-  text-align: center;
-}
 
-.space-around {
-  justify-content: space-around;
-}
