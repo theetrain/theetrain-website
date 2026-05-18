@@ -1,5 +1,9 @@
 @import './sugar.css';
 
+/*
+  MARK: Sugar overrides, custom styles
+*/
+
 :root {
   color-scheme: light dark;
 
@@ -25,15 +29,40 @@
 }
 
 body {
-  /* To prevent layout shifts on short pages. */
+  /* To prevent layout shifts on short pages that don't have a scrollbar. */
   overflow-y: scroll;
   font-size: 110%;
 }
 
-@media screen and (orientation: landscape) and (height < 45rem) {
+@media screen and (orientation: landscape) and (height < 45rem) or (height < 400px) {
   body > header {
     position: static;
   }
+}
+
+section :where(ul, ol) {
+  line-height: var(--body-line-height);
+}
+
+:where(code, kbd, samp) {
+  color: var(--s-color-text);
+}
+
+:where(pre) {
+  overflow: auto;
+}
+
+:where(main > article) {
+  margin-inline: calc((var(--sugar-spacing-inline) * -1) / 2);
+  padding-inline: calc((var(--sugar-spacing-inline) / 2));
+}
+
+:where(footer nav menu) {
+  margin: 0.25rem 0 1.25rem;
+}
+
+:where(figcaption) {
+  padding-bottom: var(--sugar-spacing-inline);
 }
 
 /*
@@ -87,29 +116,11 @@ nav menu {
   list-style-type: '';
 }
 
+/*
+  MARK: Code fences
+*/
 pre.shiki code {
   background-color: transparent;
-}
-
-section :where(ul, ol) {
-  line-height: var(--body-line-height);
-}
-
-:where(code, kbd, samp) {
-  color: var(--s-color-text);
-}
-
-:where(pre) {
-  overflow: auto;
-}
-
-:where(main > article) {
-  margin-inline: calc((var(--sugar-spacing-inline) * -1) / 2);
-  padding-inline: calc((var(--sugar-spacing-inline) / 2));
-}
-
-:where(footer nav menu) {
-  margin: 0.25rem 0 1.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -121,15 +132,6 @@ section :where(ul, ol) {
     font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-}
-
-/*
-  MARK: Theme overrides
-*/
-@media (height < 400px) {
-  body > header {
-    position: static;
   }
 }
 
