@@ -110,6 +110,11 @@ p svg {
   width: auto;
 }
 
+h1:has(~ .subtitle),
+.subtitle {
+  margin-bottom: 0;
+}
+
 nav ul,
 nav menu {
   list-style: inherit;
