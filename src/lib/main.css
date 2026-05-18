@@ -34,7 +34,7 @@ body {
   font-size: 110%;
 }
 
-@media screen and (orientation: landscape) and (height < 45rem) or (height < 400px) {
+@media screen and (orientation: landscape) and (height < 45rem) {
   body > header {
     position: static;
   }
@@ -204,5 +204,3 @@ pre.shiki {
   white-space: nowrap;
   width: 1px;
 }
-
-
