@@ -62,12 +62,14 @@
   {@html `<script>(${getUserFontStyle.toString()})()</script>`}
 </svelte:head>
 
-<span aria-busy={!preferenceRetrieved}>
-  <button disabled={!preferenceRetrieved} onclick={handleStyleChange}>
-    Use {#if userStyle.label === 'serif'}
-      sans
-    {:else}
-      serif
-    {/if} font
-  </button></span
+<button
+  aria-busy={!preferenceRetrieved}
+  disabled={!preferenceRetrieved}
+  onclick={handleStyleChange}
 >
+  Use {#if userStyle.label === 'serif'}
+    sans
+  {:else}
+    serif
+  {/if} font
+</button>

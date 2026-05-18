@@ -34,7 +34,7 @@ body {
   font-size: 110%;
 }
 
-@media screen and (orientation: landscape) and (height < 45rem) {
+@media screen and (height < 37rem), screen and (orientation: portrait) and (height < 50rem) {
   body > header {
     position: static;
   }
@@ -165,12 +165,12 @@ pre.shiki {
   display: flex;
   flex-wrap: wrap;
 
-  & > * {
+  :where(& > *) {
     flex: 1 1 auto;
   }
 }
 .responsive-row-50 {
-  & > * {
+  :where(& > *) {
     flex: 1 1 50%;
   }
 }
@@ -181,6 +181,17 @@ pre.shiki {
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around,
+.space-between {
+  :where(& > *) {
+    flex: 0 0 auto;
+  }
 }
 
 .align-center {

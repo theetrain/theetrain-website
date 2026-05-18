@@ -1,10 +1,13 @@
 <script lang="ts">
   import { page } from '$app/state'
+
+  import { CANONICAL, type HREF } from '$lib/utils'
+
   import Breadcrumbs from './Breadcrumbs.svelte'
+  import FontToggle from './FontToggle.svelte'
+
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
-  import { CANONICAL, type HREF } from '$lib/utils'
-  import FontToggle from './FontToggle.svelte'
 
   let { children, data } = $props()
 
@@ -56,8 +59,8 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <header>
   <div id="settings">
-    <div class="s-container responsive-row text-center align-center">
-      <div><a href="#main">Skip to content</a></div>
+    <div class="s-container responsive-row align-center space-between">
+      <a href="#main">Skip to content</a>
       <FontToggle />
     </div>
   </div>
