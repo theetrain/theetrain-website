@@ -141,7 +141,9 @@ Specializing in front end web development, inclusive design, and design systems.
     vertical-align: top;
   }
   #settings {
-    background-color: var(--bg-secondary);
-    padding-block: 0.5rem;
+    & > * {
+      padding-block: 0.5rem;
+      border-bottom: 1px solid var(--interaction-disabled-bg);
+    }
   }
 </style>

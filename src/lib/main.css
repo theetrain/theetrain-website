@@ -9,14 +9,18 @@
 
   --body-line-height: 1.9;
   --highlight: var(--s-color-text);
+
   --link-secondary: light-dark(#7710cb, #c78df6);
-  --bg-secondary: light-dark(#ccc, #333);
+
+  --interaction-disabled-bg: light-dark(#ccc, #333);
+  --interaction-bg: var(--s-color-link);
+  --interaction-text: var(--s-color-bg);
+  --interaction-outline: var(--interaction-bg);
 
   &,
   &[data-font-style='serif'] {
     font-family: 'Source Serif 4', serif;
   }
-
   &[data-font-style='sans'] {
     font-family: 'Lexend', Helvetica, Arial, sans-serif;
   }
@@ -123,12 +127,29 @@ nav menu {
 
 button {
   padding: 0.5rem 1rem;
-  background-color: var(--s-color-link);
-  color: var(--s-color-bg);
-  border: 1px solid var(--s-color-link);
+  background-color: var(--interaction-bg);
+  color: var(--interaction-text);
+  border: 1px solid var(--interaction-bg);
   border-radius: 6px;
   min-height: 2.75rem;
   font-size: inherit;
+  font-family: inherit;
+
+  &:hover {
+    background-color: light-dark(
+      oklch(from var(--interaction-bg) calc(l - 0.1) c h),
+      oklch(from var(--interaction-bg) calc(l + 0.1) c h)
+    );
+  }
+
+  &:disabled {
+    background-color: var(--interaction-disabled-bg);
+  }
+
+  &:focus-visible {
+    outline-color: var(--interaction-outline);
+    outline-offset: 5px;
+  }
 }
 
 /*
