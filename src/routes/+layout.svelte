@@ -57,13 +57,13 @@ Specializing in front end web development, inclusive design, and design systems.
   </script>
 </svelte:head>
 
-<header>
-  <div id="settings">
-    <div class="s-container responsive-row align-center space-between">
-      <a href="#main">Skip to content</a>
-      <FontToggle />
-    </div>
+<div id="settings">
+  <div class="s-container responsive-row align-center space-between">
+    <a href="#main">Skip to content</a>
+    <FontToggle />
   </div>
+</div>
+<header>
   <nav class="s-container" aria-label="top navigation">
     <span id="site-title">
       <img id="logo" src={logo} alt="Cogwheel logo" width="512" height="512" />
@@ -129,6 +129,11 @@ Specializing in front end web development, inclusive design, and design systems.
 
     a {
       color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
 
       &[aria-current='page']:not(:focus-visible) {
         outline: inherit;
@@ -143,7 +148,6 @@ Specializing in front end web development, inclusive design, and design systems.
   #settings {
     & > * {
       padding-block: 0.5rem;
-      border-bottom: 1px solid var(--interaction-disabled-bg);
     }
   }
 </style>
