@@ -15,10 +15,18 @@
       document.documentElement.dataset[FONT_DATASET_KEY] = styleName[fontPreference]
     }
   }
+
+  /**
+   * Track number of instances on page.
+   * Only the first instance should set up global scripts.
+   */
+  export let instance = 0
 </script>
 
 <script lang="ts">
   import { onMount } from 'svelte'
+
+  instance++
 
   const styles = Object.freeze({
     serif: { label: 'serif' },
@@ -59,7 +67,9 @@
 </script>
 
 <svelte:head>
-  {@html `<script>(${getUserFontStyle.toString()})()</script>`}
+  {#if instance === 0}
+    {@html `<script>(${getUserFontStyle.toString()})()</script>`}
+  {/if}
 </svelte:head>
 
 <button

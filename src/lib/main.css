@@ -73,6 +73,10 @@ section :where(ul, ol) {
   border-top: var(--sugar-border-width) solid var(--s-color-bg-85-fg);
 }
 
+:where(footer .s-container) {
+  margin-bottom: 1rem;
+}
+
 /*
   MARK: Elements
 */

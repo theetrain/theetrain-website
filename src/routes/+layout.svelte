@@ -107,6 +107,12 @@ Specializing in front end web development, inclusive design, and design systems.
     </nav>
   </div>
   <div class="s-container">
+    <span>Site settings</span>
+    <div>
+      <FontToggle />
+    </div>
+  </div>
+  <div id="copyright" class="s-container">
     <p>
       © {currentYear} Enrico Sacchetti. Code is MIT; content and graphics is CC BY-NC-ND 4.0. except when
       specified.
@@ -149,5 +155,9 @@ Specializing in front end web development, inclusive design, and design systems.
     & > * {
       padding-block: 0.5rem;
     }
+  }
+
+  #copyright {
+    margin-top: 2rem;
   }
 </style>
