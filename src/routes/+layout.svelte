@@ -129,6 +129,7 @@ Specializing in front end web development, inclusive design, and design systems.
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    row-gap: 1rem;
   }
   #site-title {
     font-size: 1.5rem;

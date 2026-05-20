@@ -69,7 +69,7 @@ section :where(ul, ol) {
 }
 
 :where(footer nav menu) {
-  margin: 0.25rem 0 1.25rem;
+  margin: 0;
 }
 
 :where(figcaption) {
