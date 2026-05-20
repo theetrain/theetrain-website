@@ -9,17 +9,16 @@
 
     const fontPreference = localStorage.getItem(FONT_STORAGE_KEY) as keyof typeof styleName | null
 
-    if (!fontPreference) {
-      document.documentElement.dataset[FONT_DATASET_KEY] = styleName.serif
-    } else if (fontPreference in styleName) {
-      document.documentElement.dataset[FONT_DATASET_KEY] = styleName[fontPreference]
-    }
+    document.documentElement.dataset[FONT_DATASET_KEY] = fontPreference
+      ? styleName[fontPreference]
+      : styleName.serif
   }
 
   /**
    * Track number of instances on page.
    * Only the first instance should set up global scripts.
    */
+  // svelte-ignore non_reactive_update
   export let instance = 0
 </script>
 
@@ -67,7 +66,7 @@
 </script>
 
 <svelte:head>
-  {#if instance === 0}
+  {#if instance === 1}
     {@html `<script>(${getUserFontStyle.toString()})()</script>`}
   {/if}
 </svelte:head>

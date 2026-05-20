@@ -27,9 +27,16 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark light;
+  :root:not(.s-light) {
+    color-scheme: dark;
   }
+}
+
+.s-light {
+  color-scheme: light;
+}
+.s-dark {
+  color-scheme: dark;
 }
 
 body {

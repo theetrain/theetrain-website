@@ -8,6 +8,7 @@
 
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
+  import ThemeToggle from './ThemeToggle.svelte'
 
   let { children, data } = $props()
 
@@ -43,18 +44,6 @@
 Specializing in front end web development, inclusive design, and design systems."
   />
   <meta property="og:title" content={title} />
-  <script>
-    function updateTheme({ matches }) {
-      if (matches) {
-        document.documentElement.setAttribute('data-theme', 'dark')
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light')
-      }
-    }
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  </script>
 </svelte:head>
 
 <div id="settings">
@@ -107,9 +96,15 @@ Specializing in front end web development, inclusive design, and design systems.
     </nav>
   </div>
   <div class="s-container">
-    <span>Site settings</span>
+    <span>Font style</span>
     <div>
       <FontToggle />
+    </div>
+  </div>
+  <div class="s-container">
+    <span>Theme</span>
+    <div>
+      <ThemeToggle />
     </div>
   </div>
   <div id="copyright" class="s-container">
