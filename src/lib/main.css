@@ -109,8 +109,7 @@ a {
   &[aria-current='page']:not(:focus-visible) {
     outline: 1px solid color-mix(in srgb, var(--highlight), transparent 50%);
     border-radius: 2px;
-    padding: 1px;
-    margin: -1px;
+    outline-offset: 3px;
   }
 
   &:visited {
@@ -138,6 +137,7 @@ nav ul,
 nav menu {
   list-style: inherit;
   list-style-type: '';
+  flex-wrap: wrap;
 }
 
 button {

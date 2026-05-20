@@ -69,42 +69,44 @@ Specializing in front end web development, inclusive design, and design systems.
 <main class="s-container" id="main">{@render children()}</main>
 
 <footer class="responsive-row">
-  <div class="s-container">
-    <span id="footer-site-nav">Enrico Sacchetti, site navigation</span>
-    <nav aria-labelledby="footer-site-nav">
-      <menu>
-        <li><a {...navLink('/')}>Home</a></li>
-        <li><a {...navLink('/blog')}>Blog</a></li>
-        <li><a {...navLink('/license')}>License</a></li>
-      </menu>
-    </nav>
-  </div>
-  <div class="s-container">
-    <span id="footer-social-links">Social links</span>
-    <nav aria-labelledby="footer-social-links">
-      <menu>
-        <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
-        <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
-        <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
-        <li>
-          <a
-            rel="external"
-            href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a
-          >
-        </li>
-      </menu>
-    </nav>
-  </div>
-  <div class="s-container">
-    <span>Font style</span>
+  <div class="s-container grid">
     <div>
-      <FontToggle />
+      <span id="footer-site-nav">Enrico Sacchetti, site navigation</span>
+      <nav aria-labelledby="footer-site-nav">
+        <menu>
+          <li><a {...navLink('/')}>Home</a></li>
+          <li><a {...navLink('/blog')}>Blog</a></li>
+          <li><a {...navLink('/license')}>License</a></li>
+        </menu>
+      </nav>
     </div>
-  </div>
-  <div class="s-container">
-    <span>Theme</span>
     <div>
-      <ThemeToggle />
+      <span id="footer-social-links">Social links</span>
+      <nav aria-labelledby="footer-social-links">
+        <menu>
+          <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
+          <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
+          <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
+          <li>
+            <a
+              rel="external"
+              href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a
+            >
+          </li>
+        </menu>
+      </nav>
+    </div>
+    <div>
+      <span>Font style</span>
+      <div>
+        <FontToggle />
+      </div>
+    </div>
+    <div>
+      <span>Theme</span>
+      <div>
+        <ThemeToggle />
+      </div>
     </div>
   </div>
   <div id="copyright" class="s-container">
@@ -123,6 +125,11 @@ Specializing in front end web development, inclusive design, and design systems.
 </footer>
 
 <style>
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  }
   #site-title {
     font-size: 1.5rem;
     line-height: 1.2;
