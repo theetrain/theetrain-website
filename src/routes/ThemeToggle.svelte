@@ -5,7 +5,7 @@
   const THEME_STORAGE_KEY = 'theme'
 
   function getThemePreference() {
-    const themeValues: (typeof themes)[keyof typeof themes][] = ['auto', 's-light', 's-dark']
+    const themeValues: ThemeValues[] = ['auto', 's-light', 's-dark']
     const THEME_STORAGE_KEY = 'theme'
 
     const themePreference = localStorage.getItem(THEME_STORAGE_KEY) as ThemeValues | null
@@ -23,7 +23,7 @@
   export const instance = $state({ current: 0 })
 
   /** Active theme */
-  export const currentTheme: { current: ThemeValues } = $state({ current: 'auto' })
+  export const selectedTheme: { current: ThemeValues } = $state({ current: 'auto' })
 </script>
 
 <script lang="ts">
@@ -56,7 +56,7 @@
     }
 
     localStorage.setItem(THEME_STORAGE_KEY, targetTheme)
-    currentTheme.current = targetTheme
+    selectedTheme.current = targetTheme
   }
 
   let ready = $state(false)
@@ -83,19 +83,19 @@
   <div>
     <button
       aria-busy={!ready}
-      aria-current={currentTheme.current === 'auto'}
+      aria-current={selectedTheme.current === 'auto'}
       disabled={!ready}
       onclick={updateTheme}
       data-theme="auto">OS default</button
     ><button
       aria-busy={!ready}
-      aria-current={currentTheme.current === 's-light'}
+      aria-current={selectedTheme.current === 's-light'}
       disabled={!ready}
       onclick={updateTheme}
       data-theme="s-light">Light</button
     ><button
       aria-busy={!ready}
-      aria-current={currentTheme.current === 's-dark'}
+      aria-current={selectedTheme.current === 's-dark'}
       disabled={!ready}
       onclick={updateTheme}
       data-theme="s-dark">Dark</button

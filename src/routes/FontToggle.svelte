@@ -1,17 +1,22 @@
 <script module>
-  function getUserFontStyle() {
-    const styleName = Object.freeze({ serif: 'serif', sans: 'sans' })
+  const styleName = Object.freeze({ serif: 'serif', sans: 'sans' })
+  type StyleValues = (typeof styleName)[keyof typeof styleName]
 
+  function getUserFontStyle() {
+    const styles: typeof styleName = Object.freeze({ serif: 'serif', sans: 'sans' })
     // These are duplicated since they'll get copied
     // to `<head>`.
     const FONT_STORAGE_KEY = 'font'
     const FONT_DATASET_KEY = 'fontStyle'
 
-    const fontPreference = localStorage.getItem(FONT_STORAGE_KEY) as keyof typeof styleName | null
+    const fontPreference = localStorage.getItem(FONT_STORAGE_KEY) as StyleValues | null
+    if (!fontPreference) return
 
-    document.documentElement.dataset[FONT_DATASET_KEY] = fontPreference
-      ? styleName[fontPreference]
-      : styleName.serif
+    if (styles[fontPreference]) {
+      document.documentElement.dataset[FONT_DATASET_KEY] = styles[fontPreference]
+    } else {
+      document.documentElement.dataset[FONT_DATASET_KEY] = styles.serif
+    }
   }
 
   /**
@@ -20,6 +25,9 @@
    */
   // svelte-ignore non_reactive_update
   export let instance = 0
+
+  /** Active font */
+  export const selectedFont: { current: StyleValues } = $state({ current: 'serif' })
 </script>
 
 <script lang="ts">
@@ -27,40 +35,25 @@
 
   instance++
 
-  const styles = Object.freeze({
-    serif: { label: 'serif' },
-    sans: { label: 'sans' }
-  } as const)
-
   const FONT_STORAGE_KEY = 'font'
   const FONT_DATASET_KEY = 'fontStyle'
 
-  let userStyle: (typeof styles)[keyof typeof styles] = $state(styles.serif)
-
   function handleStyleChange() {
-    if (userStyle.label === 'serif') {
-      userStyle = styles.sans
+    if (selectedFont.current === 'serif') {
+      selectedFont.current = styleName.sans
     } else {
-      userStyle = styles.serif
+      selectedFont.current = styleName.serif
     }
-    document.documentElement.dataset[FONT_DATASET_KEY] = userStyle.label
-    localStorage.setItem(FONT_STORAGE_KEY, userStyle.label)
+    console.log('current font is ', selectedFont.current)
+    document.documentElement.dataset[FONT_DATASET_KEY] = selectedFont.current
+    localStorage.setItem(FONT_STORAGE_KEY, selectedFont.current)
   }
 
   let preferenceRetrieved = $state(false)
 
   onMount(() => {
-    const userPreference = document.documentElement.dataset[FONT_DATASET_KEY]
-
-    function isValidStyle(key?: string): key is keyof typeof styles {
-      if (!key) return false
-      return key in styles
-    }
-
-    if (isValidStyle(userPreference)) {
-      userStyle = styles[userPreference]
-    }
-
+    const userPreference = document.documentElement.dataset[FONT_DATASET_KEY] as StyleValues
+    selectedFont.current = styleName[userPreference]
     preferenceRetrieved = true
   })
 </script>
@@ -76,7 +69,7 @@
   disabled={!preferenceRetrieved}
   onclick={handleStyleChange}
 >
-  Use {#if userStyle.label === 'serif'}
+  Use {#if selectedFont.current === 'serif'}
     sans
   {:else}
     serif
