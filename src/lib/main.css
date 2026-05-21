@@ -16,6 +16,7 @@
   --interaction-bg: var(--s-color-link);
   --interaction-text: var(--s-color-bg);
   --interaction-outline: var(--interaction-bg);
+  --interaction-radius: 6px;
 
   &,
   &[data-font-style='serif'] {
@@ -144,8 +145,8 @@ button {
   padding: 0.5rem 1rem;
   background-color: var(--interaction-bg);
   color: var(--interaction-text);
-  border: 1px solid var(--interaction-bg);
-  border-radius: 6px;
+  border: 2px solid var(--interaction-bg);
+  border-radius: var(--interaction-radius);
   min-height: 2.75rem;
   font-size: inherit;
   font-family: inherit;
@@ -164,6 +165,23 @@ button {
   &:focus-visible {
     outline-color: var(--interaction-outline);
     outline-offset: 5px;
+  }
+}
+
+.button-group {
+  button {
+    border-radius: 0;
+
+    &:first-of-type {
+      border-radius: var(--interaction-radius) 0 0 var(--interaction-radius);
+    }
+    &:last-of-type {
+      border-radius: 0 var(--interaction-radius) var(--interaction-radius) 0;
+    }
+
+    &[aria-current='true'] {
+      box-shadow: inset 0px 0px 4px 4px var(--interaction-text);
+    }
   }
 }
 

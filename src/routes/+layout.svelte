@@ -96,14 +96,14 @@ Specializing in front end web development, inclusive design, and design systems.
         </menu>
       </nav>
     </div>
-    <div>
-      <span>Font style</span>
+    <div role="group" aria-labelledby="font-label">
+      <span id="font-label">Font style</span>
       <div>
         <FontToggle />
       </div>
     </div>
-    <div>
-      <span>Theme</span>
+    <div role="group" aria-labelledby="theme-label">
+      <span id="theme-label">Theme</span>
       <div>
         <ThemeToggle />
       </div>

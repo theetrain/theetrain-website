@@ -28,6 +28,8 @@
 
   instance.current++
 
+  let currentTheme: ThemeValues = $state('auto')
+
   function updateTheme(
     e: MouseEvent & {
       currentTarget: HTMLButtonElement
@@ -46,6 +48,7 @@
     }
 
     localStorage.setItem(THEME_STORAGE_KEY, targetTheme)
+    currentTheme = targetTheme
   }
 
   let ready = $state(false)
@@ -61,10 +64,24 @@
   {/if}
 </svelte:head>
 
-<button aria-busy={!ready} disabled={!ready} onclick={updateTheme} data-theme="auto"
-  >OS default</button
->
-<button aria-busy={!ready} disabled={!ready} onclick={updateTheme} data-theme="s-light"
-  >Light</button
->
-<button aria-busy={!ready} disabled={!ready} onclick={updateTheme} data-theme="s-dark">Dark</button>
+<div class="button-group">
+  <button
+    aria-busy={!ready}
+    aria-current={currentTheme === 'auto'}
+    disabled={!ready}
+    onclick={updateTheme}
+    data-theme="auto">OS default</button
+  ><button
+    aria-busy={!ready}
+    aria-current={currentTheme === 's-light'}
+    disabled={!ready}
+    onclick={updateTheme}
+    data-theme="s-light">Light</button
+  ><button
+    aria-busy={!ready}
+    aria-current={currentTheme === 's-dark'}
+    disabled={!ready}
+    onclick={updateTheme}
+    data-theme="s-dark">Dark</button
+  >
+</div>
