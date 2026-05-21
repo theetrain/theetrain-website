@@ -88,6 +88,10 @@ section :where(ul, ol) {
 /*
   MARK: Elements
 */
+#main {
+  scroll-margin-top: calc(var(--sugar-spacing-block) * 2);
+}
+
 a {
   text-decoration: underline;
   border-bottom: 0;
@@ -102,7 +106,7 @@ a {
       font-size: 0.75em;
       background-color: var(--s-color-bg);
       text-decoration: none;
-      top: calc(1em + 5px);
+      top: 1.65em;
       left: 0;
     }
   }
