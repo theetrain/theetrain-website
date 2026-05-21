@@ -9,6 +9,7 @@
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
   import ThemeToggle from './ThemeToggle.svelte'
+  import Disclosure from '$lib/components/Disclosure.svelte'
 
   let { children, data } = $props()
 
@@ -47,9 +48,21 @@ Specializing in front end web development, inclusive design, and design systems.
 </svelte:head>
 
 <div id="settings">
-  <div class="s-container responsive-row align-center space-between">
-    <a href="#main">Skip to content</a>
-    <FontToggle />
+  <div class="s-container responsive-row align-center">
+    <a id="skip-link" href="#main">Skip to content</a>
+    <div class="responsive-settings">
+      <div class="widget">
+        <Disclosure label="Site settings">
+          <FontToggle />
+          <ThemeToggle />
+        </Disclosure>
+      </div>
+
+      <div class="inline">
+        <FontToggle />
+        <ThemeToggle />
+      </div>
+    </div>
   </div>
 </div>
 <header>
@@ -131,6 +144,32 @@ Specializing in front end web development, inclusive design, and design systems.
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
     row-gap: 1rem;
   }
+
+  #skip-link {
+    flex: 0 1 auto;
+  }
+
+  .responsive-settings {
+    container-type: inline-size;
+    text-align: right;
+
+    .inline {
+      display: none;
+      justify-content: end;
+    }
+  }
+
+  @container (min-width: 31rem) {
+    .responsive-settings .inline {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .widget {
+      display: none;
+    }
+  }
+
   #site-title {
     font-size: 1.5rem;
     line-height: 1.2;

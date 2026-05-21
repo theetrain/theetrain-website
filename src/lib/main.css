@@ -214,6 +214,12 @@ pre.shiki {
 */
 
 /* Flex-related */
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .responsive-row,
 .responsive-row-50 {
   display: flex;
@@ -227,6 +233,13 @@ pre.shiki {
   :where(& > *) {
     flex: 1 1 50%;
   }
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+.gap-2 {
+  gap: 1rem;
 }
 
 .text-center {

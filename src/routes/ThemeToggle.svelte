@@ -21,14 +21,15 @@
    * Only the first instance should set up global scripts.
    */
   export const instance = $state({ current: 0 })
+
+  /** Active theme */
+  export const currentTheme: { current: ThemeValues } = $state({ current: 'auto' })
 </script>
 
 <script lang="ts">
   import { onMount } from 'svelte'
 
   instance.current++
-
-  let currentTheme: ThemeValues = $state('auto')
 
   function updateTheme(
     e: MouseEvent & {
@@ -48,7 +49,7 @@
     }
 
     localStorage.setItem(THEME_STORAGE_KEY, targetTheme)
-    currentTheme = targetTheme
+    currentTheme.current = targetTheme
   }
 
   let ready = $state(false)
@@ -67,19 +68,19 @@
 <div class="button-group">
   <button
     aria-busy={!ready}
-    aria-current={currentTheme === 'auto'}
+    aria-current={currentTheme.current === 'auto'}
     disabled={!ready}
     onclick={updateTheme}
     data-theme="auto">OS default</button
   ><button
     aria-busy={!ready}
-    aria-current={currentTheme === 's-light'}
+    aria-current={currentTheme.current === 's-light'}
     disabled={!ready}
     onclick={updateTheme}
     data-theme="s-light">Light</button
   ><button
     aria-busy={!ready}
-    aria-current={currentTheme === 's-dark'}
+    aria-current={currentTheme.current === 's-dark'}
     disabled={!ready}
     onclick={updateTheme}
     data-theme="s-dark">Dark</button
