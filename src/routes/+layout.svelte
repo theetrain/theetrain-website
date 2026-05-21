@@ -54,13 +54,13 @@ Specializing in front end web development, inclusive design, and design systems.
       <div class="widget">
         <Disclosure label="Site settings">
           <FontToggle />
-          <ThemeToggle />
+          <ThemeToggle showLabel="top" />
         </Disclosure>
       </div>
 
       <div class="inline">
         <FontToggle />
-        <ThemeToggle />
+        <ThemeToggle showLabel="left" />
       </div>
     </div>
   </div>
@@ -159,7 +159,7 @@ Specializing in front end web development, inclusive design, and design systems.
     }
   }
 
-  @container (min-width: 31rem) {
+  @container (min-width: 34rem) {
     .responsive-settings .inline {
       display: flex;
       gap: 1.5rem;

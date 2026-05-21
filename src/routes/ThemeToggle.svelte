@@ -29,6 +29,13 @@
 <script lang="ts">
   import { onMount } from 'svelte'
 
+  type Props = {
+    /** Whether to show label above or to the left */
+    showLabel?: 'top' | 'left'
+  }
+
+  let { showLabel }: Props = $props()
+
   instance.current++
 
   function updateTheme(
@@ -65,24 +72,47 @@
   {/if}
 </svelte:head>
 
-<div class="button-group">
-  <button
-    aria-busy={!ready}
-    aria-current={currentTheme.current === 'auto'}
-    disabled={!ready}
-    onclick={updateTheme}
-    data-theme="auto">OS default</button
-  ><button
-    aria-busy={!ready}
-    aria-current={currentTheme.current === 's-light'}
-    disabled={!ready}
-    onclick={updateTheme}
-    data-theme="s-light">Light</button
-  ><button
-    aria-busy={!ready}
-    aria-current={currentTheme.current === 's-dark'}
-    disabled={!ready}
-    onclick={updateTheme}
-    data-theme="s-dark">Dark</button
-  >
+<div
+  class="button-group"
+  class:top-label={showLabel === 'top'}
+  class:left-label={showLabel === 'left'}
+>
+  {#if showLabel}
+    <span class="label">Theme</span>
+  {/if}
+  <div>
+    <button
+      aria-busy={!ready}
+      aria-current={currentTheme.current === 'auto'}
+      disabled={!ready}
+      onclick={updateTheme}
+      data-theme="auto">OS default</button
+    ><button
+      aria-busy={!ready}
+      aria-current={currentTheme.current === 's-light'}
+      disabled={!ready}
+      onclick={updateTheme}
+      data-theme="s-light">Light</button
+    ><button
+      aria-busy={!ready}
+      aria-current={currentTheme.current === 's-dark'}
+      disabled={!ready}
+      onclick={updateTheme}
+      data-theme="s-dark">Dark</button
+    >
+  </div>
 </div>
+
+<style>
+  .button-group {
+    display: flex;
+    gap: 0.25rem;
+  }
+  .left-label {
+    align-items: center;
+  }
+  .top-label {
+    flex-direction: column;
+    align-items: start;
+  }
+</style>

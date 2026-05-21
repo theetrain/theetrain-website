@@ -9,6 +9,7 @@
   }
   let { children, label }: Props = $props()
 
+  /** Track disclosure open state */
   let open = $state(false)
 
   const handleOutClick: Attachment<HTMLDetailsElement> = (node) => {
