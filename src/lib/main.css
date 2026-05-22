@@ -7,16 +7,21 @@
 :root {
   color-scheme: light dark;
 
+  --color-primary: var(--s-color-link);
+  --color-secondary: light-dark(#7710cb, #c78df6);
+
   --body-line-height: 1.9;
   --highlight: var(--s-color-text);
 
-  --link-secondary: light-dark(#7710cb, #c78df6);
+  --link-visited: var(--color-secondary);
 
   --interaction-disabled-bg: light-dark(#ccc, #333);
-  --interaction-bg: var(--s-color-link);
-  --interaction-text: var(--s-color-bg);
-  --interaction-outline: var(--interaction-bg);
+  --interaction-disabled-border: inherit;
+  --interaction-bg: light-dark(#f1f1f1, #333);
+  --interaction-text: var(--s-color-text);
+  --interaction-border: var(--s-color-link);
   --interaction-radius: 6px;
+  --interaction-selected-accent: light-dark(#333, #f1f1f1);
 
   &,
   &[data-font-style='serif'] {
@@ -112,13 +117,14 @@ a {
   }
 
   &[aria-current='page']:not(:focus-visible) {
-    outline: 1px solid color-mix(in srgb, var(--highlight), transparent 50%);
-    border-radius: 2px;
-    outline-offset: 3px;
+    &::after {
+      content: '';
+      background: linear-gradient(red, purple);
+    }
   }
 
   &:visited {
-    color: var(--link-secondary);
+    color: var(--link-visited);
   }
 }
 
@@ -149,7 +155,7 @@ button {
   padding: 0.5rem 1rem;
   background-color: var(--interaction-bg);
   color: var(--interaction-text);
-  border: 2px solid var(--interaction-bg);
+  border: 2px solid var(--interaction-border);
   border-radius: var(--interaction-radius);
   min-height: 2.75rem;
   font-size: inherit;
@@ -164,10 +170,10 @@ button {
 
   &:disabled {
     background-color: var(--interaction-disabled-bg);
+    border-color: var(--interaction-disabled-border);
   }
 
   &:focus-visible {
-    outline-color: var(--interaction-outline);
     outline-offset: 5px;
   }
 }
@@ -176,6 +182,10 @@ button {
   button {
     border-radius: 0;
 
+    &:not(:first-of-type, :last-of-type) {
+      border-left: 0;
+      border-right: 0;
+    }
     &:first-of-type {
       border-radius: var(--interaction-radius) 0 0 var(--interaction-radius);
     }
@@ -184,7 +194,8 @@ button {
     }
 
     &[aria-current='true'] {
-      box-shadow: inset 0px 0px 4px 4px var(--interaction-text);
+      border-color: var(--interaction-selected-accent);
+      box-shadow: inset 0px 0px 0px 3px var(--interaction-text);
     }
   }
 }
