@@ -17,6 +17,8 @@
     } else {
       document.documentElement.dataset[FONT_DATASET_KEY] = styles.serif
     }
+
+    return fontPreference
   }
 
   /**
@@ -52,8 +54,12 @@
   let preferenceRetrieved = $state(false)
 
   onMount(() => {
-    const userPreference = document.documentElement.dataset[FONT_DATASET_KEY] as StyleValues
-    selectedFont.current = styleName[userPreference]
+    const userPreference = getUserFontStyle()
+
+    if (userPreference && userPreference !== selectedFont.current) {
+      selectedFont.current = styleName[userPreference]
+    }
+
     preferenceRetrieved = true
   })
 </script>

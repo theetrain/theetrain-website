@@ -14,6 +14,8 @@
     if (themeValues.includes(themePreference)) {
       document.documentElement.classList.add(themePreference)
     }
+
+    return themePreference
   }
 
   /**
@@ -62,6 +64,12 @@
   let ready = $state(false)
 
   onMount(() => {
+    const themePreference = getThemePreference()
+
+    if (themePreference && themePreference !== selectedTheme.current) {
+      selectedTheme.current = themePreference
+    }
+
     ready = true
   })
 </script>
