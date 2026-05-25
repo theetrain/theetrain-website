@@ -2,22 +2,13 @@
 title: Hello, blog!
 date_authored: 2026-05-03T00:54:01.911Z
 date_modified: 2026-05-17T02:58:11.204Z
+splash_image_url: 20260502 splash
+splash_image_source: https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY
+splash_image_alt: |
+  Aerial view of trees on land wrapping around a lake with a winding road trailing through the tree area. The trees have autumn leaf colours.
+splash_image_description: |
+  "Aerial view of the autumn colours in northern Ontario" by Derek Sutton
 ---
-
-<script>
-  // Temporary measure until I decide how to integrate enhanced:img with mdsvex.
-  // See https://github.com/pngwn/MDsveX/issues/750
-  import image from '$lib/assets/blog/20260502 splash.avif?enhanced';
-</script>
-
-<figure>
-  <picture>
-    <source srcset={image.sources.avif} type="image/avif" />
-    <source srcset={image.sources.webp} type="image/webp" />
-    <img src={image.img.src} alt="Aerial view of the autumn colours in northern Ontario" width={image.img.w} height={image.img.h} />
-  </picture>
-  <figcaption>"Aerial view of the autumn colours in northern Ontario" by Derek Sutton <a rel="external" href="https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY">(source)</a></figcaption>
-</figure>
 
 It has been many years since I had my own custom website. For a long time, I had
 [theetrain.ca](https://theetrain.ca) pointing to a straightforward

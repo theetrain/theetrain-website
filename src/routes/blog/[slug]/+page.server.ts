@@ -26,6 +26,15 @@ export const load: PageServerLoad = async ({ params, url }) => {
     day: 'numeric'
   })
 
+  let splashImageUrl
+
+  if (post.splash_image_url) {
+    /* @vite-ignore */
+    const imageModule = await import(`/src/lib/assets/blog/${post.splash_image_url}.avif?enhanced`)
+
+    splashImageUrl = imageModule.default
+  }
+
   return {
     path: post._meta.path,
     title: post.title,
@@ -33,6 +42,10 @@ export const load: PageServerLoad = async ({ params, url }) => {
     datePublishedIso: post.date_authored.toISOString(),
     datePublishedReadable: formatter.format(post.date_authored),
     dateUpdatedIso: post.date_modified?.toISOString(),
-    dateUpdatedReadable: formatter.format(post.date_modified)
+    dateUpdatedReadable: formatter.format(post.date_modified),
+    splashImageUrl,
+    splashImageSource: post.splash_image_source,
+    splashImageAlt: post.splash_image_alt,
+    splashImageDescription: post.splash_image_description
   }
 }

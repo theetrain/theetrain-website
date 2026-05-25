@@ -10,7 +10,15 @@ const posts = defineCollection({
     redirect_from: v.optional(v.string()),
     date_authored: v.pipe(v.string(), v.toDate()),
     date_modified: v.optional(v.pipe(v.string(), v.toDate())),
-    content: v.string()
+    content: v.string(),
+    /** Path to image in repository */
+    splash_image_url: v.optional(v.string()),
+    /** Path to public image, if known. */
+    splash_image_source: v.optional(v.string()),
+    /** Image alt text. */
+    splash_image_alt: v.optional(v.string()),
+    /** Image description. */
+    splash_image_description: v.optional(v.string())
   }),
   transform: async (doc) => {
     // has date prefix (8 digits)
