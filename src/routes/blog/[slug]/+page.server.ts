@@ -29,8 +29,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
   let splashImageUrl
 
   if (post.splash_image_url) {
-    /* @vite-ignore */
-    const imageModule = await import(`/src/lib/assets/blog/${post.splash_image_url}.avif?enhanced`)
+    const imageModule = await import(`$lib/assets/blog/${post.splash_image_url}.avif?enhanced`)
 
     splashImageUrl = imageModule.default
   }
