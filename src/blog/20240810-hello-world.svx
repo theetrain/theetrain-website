@@ -1,7 +1,7 @@
 ---
 title: Hello, blog!
 date_authored: 2026-05-03T00:54:01.911Z
-date_modified: 2026-05-17T02:58:11.204Z
+date_modified: 2026-05-26T03:10:18.109Z
 splash_image_url: 20260502 splash
 splash_image_source: https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY
 splash_image_alt: |
@@ -132,6 +132,27 @@ npm ls --all | grep -v deduped | grep -v "UNMET OPTIONAL" | wc -l
 # pnpm
 pnpm list -r --parseable --depth Infinity --no-optional | wc -l
 ```
+
+## Accessibility considerations
+
+Every front-end related blog post should touch on accessibility. My site covers a lot of what should be considered as 'basics', such as, but not limited to:
+
+- Add `aria-current="page"` to links when their link corresponds to the active page. When a link's page is current, also set `href="#main"` to skip to the main content rather than request a new page.
+- Underline most links, particularly within body content.
+- Use a 7:1 contrast ratio for text-to-background contrast.
+- Ensure text size adapts to browser preferences.
+- Provide alternative text to images.
+
+In short, automatic accessibility tests should pass as a baseline. Some novel implementations I have include:
+
+- A skip link as the first interactive element.
+- An icon next to links representing the current page.
+- External links revealing "(external)" as text on hover or focus.
+- A 3-mode theme switcher and font style toggle that remains disabled with `aria-busy="true"` until JS hydrates the page, in order to signal a imminent interactivity. I hope to follow up with `<noscript>` representations.
+
+Of course there's a lot more that can be done. If you notice any issue with this site's usability, I'd greatly appreciate a new issue at [theetrain-website](https://github.com/theetrain/theetrain-website/issues) repository.
+
+---
 
 Last, but not least, this website is my garden. LLM use has been very limited to
 a few queries or debugging sessions, and hardly any code was generated or put to

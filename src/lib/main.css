@@ -91,6 +91,10 @@ section :where(ul, ol) {
   margin-bottom: 1rem;
 }
 
+:where(article > hr) {
+  margin-inline: 0;
+}
+
 /*
   MARK: Elements
 */
@@ -154,6 +158,10 @@ p svg {
   vertical-align: bottom;
   height: 1lh;
   width: auto;
+}
+
+:where(h1, h2, h3, h4):not(:first-child) {
+  margin-top: 1.5em;
 }
 
 h1:has(~ .subtitle),
