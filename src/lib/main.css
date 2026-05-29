@@ -31,6 +31,8 @@
   &[data-font-style='sans'] {
     font-family: 'Lexend', Helvetica, Arial, sans-serif;
   }
+
+  cursor: unset;
 }
 
 @media screen and (prefers-color-scheme: dark) {

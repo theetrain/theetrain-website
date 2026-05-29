@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state'
 
-  import { CANONICAL, type HREF } from '$lib/utils'
+  import { CANONICAL, SOCIAL_LINKS, TOP_LINKS, type HREF } from '$lib/utils'
 
   import Breadcrumbs from './Breadcrumbs.svelte'
   import FontToggle from './FontToggle.svelte'
@@ -87,9 +87,9 @@ Specializing in front end web development, inclusive design, and design systems.
       <span id="footer-site-nav">Enrico Sacchetti, site navigation</span>
       <nav aria-labelledby="footer-site-nav">
         <menu>
-          <li><a {...navLink('/')}>Home</a></li>
-          <li><a {...navLink('/blog')}>Blog</a></li>
-          <li><a {...navLink('/license')}>License</a></li>
+          {#each TOP_LINKS as link}
+            <li><a {...navLink(link.href)}>{link.label}</a></li>
+          {/each}
         </menu>
       </nav>
     </div>
@@ -97,15 +97,9 @@ Specializing in front end web development, inclusive design, and design systems.
       <span id="footer-social-links">Social links</span>
       <nav aria-labelledby="footer-social-links">
         <menu>
-          <li><a rel="external" href="https://bsky.app/profile/theetrain.ca">Bluesky</a></li>
-          <li><a rel="external" href="https://github.com/theetrain">GitHub</a></li>
-          <li><a rel="external" href="https://ca.linkedin.com/in/etrain">LinkedIn</a></li>
-          <li>
-            <a
-              rel="external"
-              href="https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v">YouTube</a
-            >
-          </li>
+          {#each SOCIAL_LINKS as link}
+            <li><a rel="external" href={link.href}>{link.label}</a></li>
+          {/each}
         </menu>
       </nav>
     </div>

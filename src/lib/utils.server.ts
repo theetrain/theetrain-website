@@ -3,7 +3,8 @@ import type { Breadcrumb } from './types'
 export const staticRoutes = new Map<string, Breadcrumb>([
   ['', { title: 'Home', href: '/' }],
   ['blog', { title: 'Blog', href: '/blog' }],
-  ['license', { title: 'License', href: '/license' }]
+  ['license', { title: 'License', href: '/license' }],
+  ['sitemap', { title: 'Sitemap', href: '/sitemap' }]
 ])
 
 /**
