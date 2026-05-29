@@ -80,15 +80,11 @@
   {/if}
 </svelte:head>
 
-<div
-  class="button-group"
-  class:top-label={showLabel === 'top'}
-  class:left-label={showLabel === 'left'}
->
+<div class:top-label={showLabel === 'top'} class:left-label={showLabel === 'left'} class="wrapper">
   {#if showLabel}
     <span class="label">Theme</span>
   {/if}
-  <div>
+  <div class="button-group">
     <button
       aria-busy={!ready}
       aria-current={selectedTheme.current === 'auto'}
@@ -112,10 +108,21 @@
 </div>
 
 <style>
-  .button-group {
+  .wrapper {
     display: flex;
     gap: 0.25rem;
+
+    container-type: inline-size;
+    --flow: row;
   }
+
+  @container (width < 18rem) {
+    .button-group {
+      flex-direction: column;
+      --flow: col;
+    }
+  }
+
   .left-label {
     align-items: center;
   }

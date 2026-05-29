@@ -64,6 +64,10 @@ section :where(ul, ol) {
   line-height: var(--body-line-height);
 }
 
+:where(.s-container) {
+  max-width: 100%;
+}
+
 :where(code, kbd, samp) {
   color: var(--s-color-text);
 }
@@ -135,20 +139,7 @@ a {
 }
 
 *:not(#site-title) > a[aria-current='page'] {
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 0.75em;
-    left: 0.5em;
-    top: -0.3em;
-    background-color: currentColor;
-    mask-image: url('$lib/assets/icons/cog.svg');
-    mask-position: 100% 0;
-    mask-repeat: no-repeat;
-    mask-size: contain;
-  }
+  text-decoration-thickness: 4px;
 }
 
 p,
@@ -206,18 +197,36 @@ button {
 }
 
 .button-group {
+  display: flex;
+  flex-direction: row;
+
   button {
     border-radius: 0;
 
-    &:not(:first-of-type, :last-of-type) {
-      border-left: 0;
-      border-right: 0;
+    @container not style(--flow: col) {
+      &:not(:first-of-type, :last-of-type) {
+        border-left: 0;
+        border-right: 0;
+      }
+      &:first-of-type {
+        border-radius: var(--interaction-radius) 0 0 var(--interaction-radius);
+      }
+      &:last-of-type {
+        border-radius: 0 var(--interaction-radius) var(--interaction-radius) 0;
+      }
     }
-    &:first-of-type {
-      border-radius: var(--interaction-radius) 0 0 var(--interaction-radius);
-    }
-    &:last-of-type {
-      border-radius: 0 var(--interaction-radius) var(--interaction-radius) 0;
+
+    @container style(--flow: col) {
+      &:not(:first-of-type, :last-of-type) {
+        border-top: 0;
+        border-bottom: 0;
+      }
+      &:first-of-type {
+        border-radius: var(--interaction-radius) var(--interaction-radius) 0 0;
+      }
+      &:last-of-type {
+        border-radius: 0 0 var(--interaction-radius) var(--interaction-radius);
+      }
     }
 
     &[aria-current='true'] {

@@ -48,7 +48,7 @@ Specializing in front end web development, inclusive design, and design systems.
 </svelte:head>
 
 <div id="settings">
-  <div class="s-container responsive-row align-center">
+  <div class="s-container responsive-row-50 align-center gap-1">
     <a id="skip-link" href="#main">Skip to content</a>
     <div class="responsive-settings">
       <div class="widget">
@@ -135,7 +135,7 @@ Specializing in front end web development, inclusive design, and design systems.
   .grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(24rem, 100%), 1fr));
     row-gap: 1rem;
   }
 

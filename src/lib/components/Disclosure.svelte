@@ -33,13 +33,18 @@
   .panel {
     display: flex;
     flex-direction: column;
+    container-type: inline-size;
 
     position: absolute;
     z-index: 10;
     right: 0;
 
-    width: max-content;
+    width: 19.25rem;
+    max-width: 100%;
     padding: 0.5rem;
     background-color: var(--s-color-bg);
+
+    border: 1px solid var(--s-color-text);
+    box-shadow: -4px 4px 10px 0 color-mix(in srgb, var(--s-color-text), transparent 50%);
   }
 </style>
