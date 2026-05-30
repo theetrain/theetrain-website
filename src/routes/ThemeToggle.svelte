@@ -112,13 +112,13 @@
     display: flex;
     gap: 0.25rem;
 
-    container-type: inline-size;
     --flow: row;
   }
 
   @container (width < 18rem) {
     .button-group {
       flex-direction: column;
+      width: 100%;
       --flow: col;
     }
   }

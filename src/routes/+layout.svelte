@@ -111,9 +111,7 @@ Specializing in front end web development, inclusive design, and design systems.
     </div>
     <div role="group" aria-labelledby="theme-label">
       <span id="theme-label">Theme</span>
-      <div>
-        <ThemeToggle />
-      </div>
+      <ThemeToggle />
     </div>
   </div>
   <div id="copyright" class="s-container">

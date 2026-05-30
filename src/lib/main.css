@@ -236,6 +236,10 @@ button {
   }
 }
 
+[role='group'] {
+  container-type: inline-size;
+}
+
 /*
   MARK: Code fences
 */
