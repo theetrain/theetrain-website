@@ -12,7 +12,6 @@ export const staticRoutes = new Map<string, Breadcrumb>([
  * Does not account for non-tail dynamic routes.
  *
  * @param url Current URL
- * @param title Current route's page title
  */
 export function buildStaticBreadcrumbs(url: URL): Breadcrumb[] {
   // On home page, no need for breadcrumbs

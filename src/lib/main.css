@@ -133,8 +133,14 @@ a {
     color: var(--link-visited);
   }
 
-  &:hover {
-    color: var(--link-hover);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--link-hover);
+    }
+  }
+
+  &:active {
+    color: var(--s-color-text);
   }
 }
 
