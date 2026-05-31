@@ -1,7 +1,7 @@
 ---
 title: Hello, blog!
 date_authored: 2026-05-03T00:54:01.911Z
-date_modified: 2026-05-26T03:10:18.109Z
+date_modified: 2026-05-31T02:05:23.007Z
 splash_image_url: 20260502 splash
 splash_image_source: https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY
 splash_image_alt: |
@@ -63,8 +63,8 @@ actions still process server-side.
 2. Reducing your supply chain footprint.
 3. Reducing your mental load while solving problems
 4. Reducing your attempted solutions to the ones that benefit users most (this
-includes [accessibility
-linting](https://svelte.dev/docs/svelte/compiler-warnings)).
+   includes [accessibility
+   linting](https://svelte.dev/docs/svelte/compiler-warnings)).
 
 Less is less, and that is good.
 
@@ -115,8 +115,8 @@ straightforward while `fontless` handles all the `@font-face` rules at build tim
 
 Build time optimizations are great! What's not so great is my
 [SBOM](https://en.wikipedia.org/wiki/Software_supply_chain); at the time of this
-writing, this project has 806 total dependencies; which includes transitive
-dependencies. I would prefer to keep that under 500, and maybe I can go into
+writing, this project has 463 total dependencies; which includes transitive
+dependencies. I generally prefer to keep this number under 500, which is particularly challenging to do in larger applications. Maybe I can go into
 more detail in a future blog post.
 
 Importantly, even though a fraction of the
@@ -142,6 +142,7 @@ Every front-end related blog post should touch on accessibility. My site covers 
 - Use a 7:1 contrast ratio for text-to-background contrast.
 - Ensure text size adapts to browser preferences.
 - Provide alternative text to images.
+- Omit pseudo element content from bloating screen reader or Braille output, particularly for interaction labelling such as breadcrumb links and toggle buttons.
 
 In short, automatic accessibility tests should pass as a baseline. Some novel implementations I have include:
 
