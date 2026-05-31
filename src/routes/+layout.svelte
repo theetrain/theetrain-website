@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { ProgressBar } from '@prgm/sveltekit-progress-bar'
   import { page } from '$app/state'
-
-  import { CANONICAL, SOCIAL_LINKS, TOP_LINKS, type HREF } from '$lib/utils'
-
-  import Breadcrumbs from './Breadcrumbs.svelte'
-  import FontToggle from './FontToggle.svelte'
 
   import '$lib/main.css'
   import logo from '$lib/assets/logo.png?url'
-  import ThemeToggle from './ThemeToggle.svelte'
   import Disclosure from '$lib/components/Disclosure.svelte'
+
+  import Breadcrumbs from './Breadcrumbs.svelte'
+  import FontToggle from './FontToggle.svelte'
+  import ThemeToggle from './ThemeToggle.svelte'
+
+  import { CANONICAL, SOCIAL_LINKS, TOP_LINKS, type HREF } from '$lib/utils'
 
   let { children, data } = $props()
 
@@ -46,6 +47,8 @@ Specializing in front end web development, inclusive design, and design systems.
   />
   <meta property="og:title" content={title} />
 </svelte:head>
+
+<ProgressBar color="var(--color-primary)" />
 
 <div id="settings">
   <div class="s-container responsive-row-50 align-center gap-1">

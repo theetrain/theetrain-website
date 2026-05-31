@@ -106,6 +106,10 @@ section :where(ul, ol) {
   content: none;
 }
 
+.svelte-progress-bar {
+  z-index: 20 !important;
+}
+
 /*
   MARK: Elements
 */
