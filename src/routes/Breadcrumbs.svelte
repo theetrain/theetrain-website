@@ -13,7 +13,9 @@
     {#each breadcrumbs as { title, href }}
       {@const tailHref = page.url.pathname === href}
       <li>
-        <a href={tailHref ? '#main' : href} aria-current={tailHref ? 'page' : null}>{title}</a>
+        <a href={tailHref ? '#main' : href} aria-current={tailHref ? 'page' : null}>{title}</a><span
+          class="separator">/</span
+        >
       </li>
     {/each}
 
@@ -33,5 +35,11 @@
     margin: 0;
     min-height: var(--sugar-spacing-block);
     align-items: center;
+  }
+  .separator {
+    padding-inline: 0.5em;
+  }
+  li:last-of-type .separator {
+    display: none;
   }
 </style>

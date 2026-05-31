@@ -101,6 +101,11 @@ section :where(ul, ol) {
   margin-inline: 0;
 }
 
+:where(nav[aria-label='breadcrumb'] > ol > li:not(:last-child))::after {
+  /* Remove `/` from pseudo element */
+  content: none;
+}
+
 /*
   MARK: Elements
 */
