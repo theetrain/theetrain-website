@@ -13,6 +13,7 @@
   --body-line-height: 1.9;
   --highlight: var(--s-color-text);
 
+  --link-color: light-dark(var(--s-color-link), #13b8dd);
   --link-visited: var(--color-secondary);
   --link-hover: light-dark(#014f01, #19db19);
 
@@ -122,6 +123,7 @@ a {
   border-bottom: 0;
   position: relative;
   transition: color 200ms;
+  color: var(--link-color);
 
   &[rel='external'] {
     position: relative;
@@ -153,6 +155,7 @@ a {
   }
 }
 
+nav a:not(:hover),
 nav a:not(:hover):visited,
 .skip-link:visited {
   color: var(--s-color-link);
