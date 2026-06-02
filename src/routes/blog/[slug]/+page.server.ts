@@ -1,6 +1,7 @@
 import { allPosts } from 'content-collections'
 import { error, redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
+import type { Picture } from '@sveltejs/enhanced-img'
 
 export const load: PageServerLoad = async ({ params, url }) => {
   let redirectPath = ''
@@ -26,12 +27,12 @@ export const load: PageServerLoad = async ({ params, url }) => {
     day: 'numeric'
   })
 
-  let splashImageUrl
+  let splashImageSources!: Picture
 
   if (post.splash_image_url) {
     const imageModule = await import(`$lib/assets/blog/${post.splash_image_url}.avif?enhanced`)
 
-    splashImageUrl = imageModule.default
+    splashImageSources = imageModule.default
   }
 
   return {
@@ -42,7 +43,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
     datePublishedReadable: formatter.format(post.date_authored),
     dateUpdatedIso: post.date_modified?.toISOString(),
     dateUpdatedReadable: formatter.format(post.date_modified),
-    splashImageUrl,
+    splashEnhancedImageSources: splashImageSources,
     splashImageSource: post.splash_image_source,
     splashImageAlt: post.splash_image_alt,
     splashImageDescription: post.splash_image_description

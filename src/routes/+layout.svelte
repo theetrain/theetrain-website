@@ -24,6 +24,18 @@
     }
   })
 
+  let ogImage = $derived.by(() => {
+    let url = ''
+
+    if (page.data.splashEnhancedImageSources) {
+      url = page.data.splashEnhancedImageSources.sources['jpeg'].split(',')[0]?.split(' ')[0] ?? ''
+    } else {
+      url = logo
+    }
+
+    return new URL(url, CANONICAL).href
+  })
+
   /** If given path is the current page, use a hash link */
   function navLink(path: HREF) {
     if (path === page.url.pathname)
@@ -46,6 +58,7 @@
 Specializing in front end web development, inclusive design, and design systems."
   />
   <meta property="og:title" content={title} />
+  <meta property="og:image" content={ogImage} />
 </svelte:head>
 
 <ProgressBar color="var(--color-primary)" />

@@ -9,7 +9,7 @@
   const blogPath = $derived(`${CANONICAL}/${data.slug}`)
 
   const splashImage = $derived({
-    url: data.splashImageUrl,
+    sources: data.splashEnhancedImageSources,
     source: data.splashImageSource,
     alt: data.splashImageAlt,
     description: data.splashImageDescription
@@ -63,10 +63,10 @@
     {/if}
   </p>
 
-  {#if splashImage.url}
+  {#if splashImage.sources}
     <figure>
       <enhanced:img
-        src={splashImage.url}
+        src={splashImage.sources}
         alt={splashImage.alt ?? splashImage.description ?? 'Splash image'}
       />
       {#if splashImage.description}
