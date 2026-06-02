@@ -153,6 +153,11 @@ a {
   }
 }
 
+nav a:not(:hover):visited,
+.skip-link:visited {
+  color: var(--s-color-link);
+}
+
 *:not(#site-title) > a[aria-current='page'] {
   text-decoration-thickness: 4px;
 }

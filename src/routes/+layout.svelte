@@ -52,7 +52,7 @@ Specializing in front end web development, inclusive design, and design systems.
 
 <div id="settings">
   <div class="s-container responsive-row-50 align-center gap-1">
-    <a id="skip-link" href="#main">Skip to content</a>
+    <a id="skip-link" class="skip-link" href="#main">Skip to content</a>
     <div class="responsive-settings">
       <div class="widget">
         <Disclosure label="Site settings">
