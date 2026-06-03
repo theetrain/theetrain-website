@@ -15,9 +15,6 @@
     description: data.splashImageDescription
   })
 
-  /** TODO */
-  const wordCount = $derived(123)
-
   // jsonLD and related logic
   const jsonLd: WithContext<BlogPosting> = $derived({
     '@context': 'https://schema.org',
@@ -38,7 +35,7 @@
       }
     },
     url: blogPath,
-    wordCount
+    wordCount: data.wordCount
   })
 
   const jsonLdScript = $derived(
@@ -68,6 +65,7 @@
         >Updated <time datetime={data.dateUpdatedIso}>{data.dateUpdatedReadable}</time>.</span
       >
     {/if}
+    <wbr /><em>{data.readingTime}</em>
   </p>
 
   {#if splashImage.sources}

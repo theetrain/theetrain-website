@@ -2,6 +2,7 @@ import { allPosts } from 'content-collections'
 import { error, redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
 import type { Picture } from '@sveltejs/enhanced-img'
+import { calculateReadingTime } from '$lib/utils'
 
 export const load: PageServerLoad = async ({ params, url }) => {
   let redirectPath = ''
@@ -35,10 +36,14 @@ export const load: PageServerLoad = async ({ params, url }) => {
     splashImageSources = imageModule.default
   }
 
+  const { text: readingTime, wordCount } = calculateReadingTime(post.content)
+
   return {
     path: post._meta.path,
     title: post.title,
     slug: post.slug,
+    readingTime,
+    wordCount,
     datePublishedIso: post.date_authored.toISOString(),
     datePublishedReadable: formatter.format(post.date_authored),
     dateUpdatedIso: post.date_modified?.toISOString(),
