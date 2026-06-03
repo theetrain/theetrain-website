@@ -48,6 +48,13 @@
 
 <svelte:head>
   {@html jsonLdScript}
+
+  <!-- Article-specific opengraph data not competing with root layout -->
+  <meta property="og:article:author" content="Enrico Sacchetti" />
+  <meta property="og:article:published_time" content={data.datePublishedIso} />
+  {#if data.dateUpdatedIso}
+    <meta property="og:article:modified_time" content={data.dateUpdatedIso} />
+  {/if}
 </svelte:head>
 
 <article>
