@@ -59,6 +59,13 @@ Specializing in front end web development, inclusive design, and design systems.
   />
   <meta property="og:title" content={title} />
   <meta property="og:image" content={ogImage} />
+
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS Feed Enrico Sacchetti's Blog"
+    href="/rss.xml"
+  />
 </svelte:head>
 
 <ProgressBar color="var(--color-primary)" />
@@ -106,6 +113,7 @@ Specializing in front end web development, inclusive design, and design systems.
           {#each TOP_LINKS as link}
             <li><a {...navLink(link.href)}>{link.label}</a></li>
           {/each}
+          <li><a href="/rss.xml">Blog RSS Feed</a></li>
         </menu>
       </nav>
     </div>

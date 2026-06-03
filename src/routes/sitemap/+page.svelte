@@ -7,10 +7,7 @@
 
 <h1>Sitemap</h1>
 
-<p>
-  This page lists all the sections and content available on this website. You can also view the
-  machine-readable <a href="/sitemap.xml" type="application/xml">XML sitemap</a>.
-</p>
+<p>This page lists all the sections and content available on this website.</p>
 
 <h2>Pages</h2>
 <ul>
@@ -22,6 +19,12 @@
       </a>
     </li>
   {/each}
+</ul>
+
+<h2>Alternate forms</h2>
+<ul>
+  <li><a href="/sitemap.xml">XML Sitemap</a></li>
+  <li><a href="/rss.xml">Blog RSS Feed</a></li>
 </ul>
 
 <h2>Blog Posts</h2>
