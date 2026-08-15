@@ -1,4 +1,4 @@
-import { allPosts } from 'content-collections'
+import { allPosts } from '#content-collections'
 import { CANONICAL } from '#lib/utils.js'
 import type { RequestHandler } from './$types'
 

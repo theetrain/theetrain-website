@@ -35,11 +35,7 @@ export default defineConfig({
     sveltekit({
       preprocess: [vitePreprocess(), mdsvex(defineMDSveXConfig(mdsvexConfig))],
       extensions: ['.svelte', '.svx'],
-      adapter: adapter({ fallback: '404.html' }),
-      alias: {
-        '$blog/*': 'src/blog/*',
-        'content-collections': './.content-collections/generated'
-      }
+      adapter: adapter({ fallback: '404.html' })
     }),
     process.env['VITEST'] ? undefined : contentCollections(),
     fontless()

@@ -1,4 +1,4 @@
-import { allPosts } from 'content-collections'
+import { allPosts } from '#content-collections'
 import { error, redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
 import type { Picture } from '@sveltejs/enhanced-img'

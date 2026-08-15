@@ -46,6 +46,8 @@
   "type": "module",
   "imports": {
     "#lib": "./src/lib/index.js",
-    "#lib/*": "./src/lib/*"
+    "#lib/*": "./src/lib/*",
+    "#blog/*": "./src/blog/*",
+    "#content-collections": "./.content-collections/generated/index.js"
   }
 }
