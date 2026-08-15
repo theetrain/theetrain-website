@@ -1,8 +1,8 @@
 <script>
-  import bluesky from '$lib/assets/icons/bluesky.svg?raw'
-  import github from '$lib/assets/icons/github.svg?raw'
-  import linkedin from '$lib/assets/icons/linkedin.svg?raw'
-  import youtube from '$lib/assets/icons/youtube.svg?raw'
+  import bluesky from '#lib/assets/icons/bluesky.svg?raw'
+  import github from '#lib/assets/icons/github.svg?raw'
+  import linkedin from '#lib/assets/icons/linkedin.svg?raw'
+  import youtube from '#lib/assets/icons/youtube.svg?raw'
 
   const { data } = $props()
 
@@ -16,7 +16,7 @@
   <div class="responsive-row-50">
     <div id="portrait">
       <enhanced:img
-        src="$lib/assets/enrico.jpg"
+        src="#lib/assets/enrico.jpg"
         alt="Portrait of Enrico; a man facing
       the camera, smiling"
       />

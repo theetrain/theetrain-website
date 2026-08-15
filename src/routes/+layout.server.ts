@@ -1,5 +1,5 @@
 import type { ServerLoad } from '@sveltejs/kit'
-import { buildStaticBreadcrumbs, staticRoutes } from '$lib/utils.server'
+import { buildStaticBreadcrumbs, staticRoutes } from '#lib/utils.server.js'
 
 export const prerender = true
 

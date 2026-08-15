@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { CANONICAL } from '$lib/utils.js'
+  import { CANONICAL } from '#lib/utils.js'
   import { type WithContext, type BlogPosting } from 'schema-dts'
-  import enricoAvatar from '$lib/assets/enrico.jpg?url'
+  import enricoAvatar from '#lib/assets/enrico.jpg?url'
 
   const { data } = $props()
   const Post = $derived(data.Post)

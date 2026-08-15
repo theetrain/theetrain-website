@@ -1,6 +1,5 @@
 import type { HTMLAnchorAttributes } from 'svelte/elements'
-import type { Pathname } from '$app/types'
-import type { HREF } from '$lib/utils'
+import type { HREF } from '#lib/utils.js'
 import type { Picture } from '@sveltejs/enhanced-img'
 
 // See https://kit.svelte.dev/docs/types#app

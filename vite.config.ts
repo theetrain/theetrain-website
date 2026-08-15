@@ -1,13 +1,46 @@
+import adapter from '@sveltejs/adapter-static'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { mdsvex, escapeSvelte, defineMDSveXConfig, type MdsvexOptions } from 'mdsvex'
+import { createHighlighter } from 'shiki'
 import { enhancedImages } from '@sveltejs/enhanced-img'
 import { sveltekit } from '@sveltejs/kit/vite'
 import contentCollections from '@content-collections/vite'
 import { fontless } from 'fontless'
 import { defineConfig } from 'vite'
 
+const highlighter = await createHighlighter({
+  themes: ['github-light', 'github-dark'],
+  langs: ['javascript', 'typescript', 'sh', 'svelte', 'css']
+})
+
+const mdsvexConfig: MdsvexOptions = {
+  highlight: {
+    highlighter: (code, lang = 'text') => {
+      const html = escapeSvelte(
+        highlighter.codeToHtml(code, {
+          lang: lang!,
+          themes: { light: 'github-light', dark: 'github-dark' }
+        })
+      )
+
+      return `{@html \`${html}\` }`
+    }
+  },
+  extensions: ['.md', '.svx']
+}
+
 export default defineConfig({
   plugins: [
     enhancedImages(),
-    sveltekit(),
+    sveltekit({
+      preprocess: [vitePreprocess(), mdsvex(defineMDSveXConfig(mdsvexConfig))],
+      extensions: ['.svelte', '.svx'],
+      adapter: adapter({ fallback: '404.html' }),
+      alias: {
+        '$blog/*': 'src/blog/*',
+        'content-collections': './.content-collections/generated'
+      }
+    }),
     process.env['VITEST'] ? undefined : contentCollections(),
     fontless()
   ]

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state'
-  import { TOP_LINKS } from '$lib/utils.js'
+  import { TOP_LINKS } from '#lib/utils.js'
 
   let { data } = $props()
 </script>

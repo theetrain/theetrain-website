@@ -1,3 +1,3 @@
-import type { Pathname } from '$app/types'
+import type { Path } from '$app/types'
 
-export type Breadcrumb = { title: string; href: Pathname }
+export type Breadcrumb = { title: string; href: Path }

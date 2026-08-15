@@ -1,6 +1,6 @@
-import type { Pathname } from '$app/types'
+import type { Path } from '$app/types'
 
-export type HREF = Pathname | '#main'
+export type HREF = Path | '#main'
 export const CANONICAL = 'https://theetrain.ca'
 
 export const TOP_LINKS = Object.freeze([
@@ -27,14 +27,8 @@ export const SOCIAL_LINKS = Object.freeze([
     label: 'Bluesky',
     href: 'https://bsky.app/profile/theetrain.ca'
   },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/theetrain'
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://ca.linkedin.com/in/etrain'
-  },
+  { label: 'GitHub', href: 'https://github.com/theetrain' },
+  { label: 'LinkedIn', href: 'https://ca.linkedin.com/in/etrain' },
   {
     label: 'YouTube',
     href: 'https://youtube.com/playlist?list=PL8bMgX1kyZTiLCyvf8vF13sdnR4fhNl6v'
@@ -50,6 +44,7 @@ export function calculateReadingTime(content: string, wpm = 225) {
     .trim()
     .split(/\s+/)
     .filter((word) => word.length > 0)
+
   const wordCount = words.length
 
   // Calculate time and round up to the nearest minute
