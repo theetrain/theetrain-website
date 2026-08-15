@@ -2,7 +2,7 @@
 title: Hello, blog!
 date_authored: 2026-05-03T00:54:01.911Z
 date_modified: 2026-05-31T02:05:23.007Z
-splash_image_url: 20260502 splash
+splash_image_url: 20260502_splash
 splash_image_source: https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY
 splash_image_alt: |
   Aerial view of trees on land wrapping around a lake with a winding road trailing through the tree area. The trees have autumn leaf colours.
