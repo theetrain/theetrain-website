@@ -1,4 +1,4 @@
-import { allPosts } from 'content-collections'
+import { allPosts } from '#content-collections'
 import { format } from 'date-fns'
 
 /** @type {import('./$types').PageLoad} */

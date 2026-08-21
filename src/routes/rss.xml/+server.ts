@@ -1,5 +1,5 @@
-import { CANONICAL } from '$lib/utils'
-import { allPosts } from 'content-collections'
+import { CANONICAL } from '#lib/utils.js'
+import { allPosts } from '#content-collections'
 import type { RequestHandler } from './$types'
 
 export const prerender = true

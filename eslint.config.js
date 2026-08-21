@@ -28,22 +28,12 @@ export default [
     }
   },
   {
-    ignores: [
-      "build/",
-      '.svelte-kit/',
-      'dist/'
-    ],
+    ignores: ['build/', '.svelte-kit/', 'dist/']
   },
   {
     rules: {
-      '@stylistic/indent': [
-        "error",
-        2
-      ],
-      '@stylistic/comma-dangle': [
-        "error",
-        'never'
-      ],
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/comma-dangle': ['error', 'never']
     },
     ignores: ['*.svelte']
   }

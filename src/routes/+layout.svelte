@@ -2,15 +2,15 @@
   import { ProgressBar } from '@prgm/sveltekit-progress-bar'
   import { page } from '$app/state'
 
-  import '$lib/main.css'
-  import logo from '$lib/assets/logo.png?url'
-  import Disclosure from '$lib/components/Disclosure.svelte'
+  import '#lib/main.css'
+  import logo from '#lib/assets/logo.png?url'
+  import Disclosure from '#lib/components/Disclosure.svelte'
 
   import Breadcrumbs from './Breadcrumbs.svelte'
   import FontToggle from './FontToggle.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 
-  import { CANONICAL, SOCIAL_LINKS, TOP_LINKS, type HREF } from '$lib/utils'
+  import { CANONICAL, SOCIAL_LINKS, TOP_LINKS, type HREF } from '#lib/utils.js'
 
   let { children, data } = $props()
 

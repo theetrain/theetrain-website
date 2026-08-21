@@ -22,14 +22,14 @@ const posts = defineCollection({
   }),
   transform: async (doc) => {
     // has date prefix (8 digits)
-    if (!/^[0-9]{8}-[a-z-]+$/.test(doc._meta.path)) {
+    if (!/^post-[0-9]{8}-[a-z-]+$/.test(doc._meta.path)) {
       throw new Error(
         `Filename does not use convention YYYYMMDD-article-name. Received ${doc._meta.path}`
       )
     }
     return {
       ...doc,
-      slug: doc._meta.path.slice(9)
+      slug: doc._meta.path.slice(14)
     }
   }
 })

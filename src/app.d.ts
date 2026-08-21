@@ -1,7 +1,6 @@
 import type { HTMLAnchorAttributes } from 'svelte/elements'
-import type { Pathname } from '$app/types'
-import type { HREF } from '$lib/utils'
-import type { Picture } from '@sveltejs/enhanced-img'
+import type { HREF } from '#lib/utils.js'
+import type { EnhancedPicture } from '#lib/types.ts'
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -12,13 +11,7 @@ declare global {
     interface PageData {
       title: string
       /** Blog post splash image */
-      splashEnhancedImageSources?: Picture & {
-        sources: {
-          jpeg: string
-          avif: string
-          webp: string
-        }
-      }
+      splashEnhancedImageSources?: EnhancedPicture
     }
     // interface PageState {}
     // interface Platform {}
