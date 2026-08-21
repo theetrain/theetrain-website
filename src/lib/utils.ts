@@ -1,6 +1,6 @@
 import type { Path } from '$app/types'
 
-export type HREF = Path | '#main'
+export type HREF = `/${Path}` | '#main'
 export const CANONICAL = 'https://theetrain.ca'
 
 export const TOP_LINKS = Object.freeze([
