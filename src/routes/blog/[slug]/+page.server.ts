@@ -31,7 +31,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
   let splashImageSources!: Picture
 
   if (post.splash_image_url) {
-    const imageModule = await import(`#lib/assets/blog/blog_${post.splash_image_url}.avif?enhanced`)
+    const imageModule = await import(`../../../lib/assets/blog/blog_${post.splash_image_url}.avif?enhanced`)
 
     splashImageSources = imageModule.default
   }
@@ -40,6 +40,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
 
   return {
     path: post._meta.path,
+    noPrefixPath: post._meta.path.split('post-')[1],
     title: post.title,
     slug: post.slug,
     readingTime,
