@@ -1,8 +1,8 @@
 import { allPosts } from '#content-collections'
 import { error, redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
-import type { Picture } from '@sveltejs/enhanced-img'
 import { calculateReadingTime } from '#lib/utils.js'
+import type { EnhancedPicture } from '#lib/types.ts'
 
 export const load: PageServerLoad = async ({ params, url }) => {
   let redirectPath = ''
@@ -28,7 +28,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
     day: 'numeric'
   })
 
-  let splashImageSources!: Picture
+  let splashImageSources!: EnhancedPicture
 
   if (post.splash_image_url) {
     const imageModule = await import(`../../../lib/assets/blog/blog_${post.splash_image_url}.avif?enhanced`)
