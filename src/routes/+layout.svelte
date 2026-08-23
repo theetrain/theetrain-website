@@ -1,5 +1,7 @@
 <script lang="ts">
   import { ProgressBar } from '@prgm/sveltekit-progress-bar'
+  import { preloads as fontPreloads } from 'fontless/runtime'
+
   import { page } from '$app/state'
 
   import '#lib/main.css'
@@ -59,6 +61,10 @@ Specializing in front end web development, inclusive design, and design systems.
   />
   <meta property="og:title" content={title} />
   <meta property="og:image" content={ogImage} />
+
+  {#each fontPreloads as attrs}
+		<link {...attrs} />
+	{/each}
 
   <link
     rel="alternate"

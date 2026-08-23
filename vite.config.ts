@@ -38,6 +38,13 @@ export default defineConfig({
       adapter: adapter({ fallback: '404.html' })
     }),
     process.env['VITEST'] ? undefined : contentCollections(),
-    fontless()
+    fontless({
+      families: [
+        {
+          name: 'Source Serif 4',
+          preload: true
+        },
+      ]
+    })
   ]
 })
