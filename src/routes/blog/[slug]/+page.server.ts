@@ -25,7 +25,8 @@ export const load: PageServerLoad = async ({ params, url }) => {
   const formatter = Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'America/Toronto'
   })
 
   let splashImageSources!: EnhancedPicture

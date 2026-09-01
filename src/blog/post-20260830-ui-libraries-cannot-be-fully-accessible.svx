@@ -1,6 +1,7 @@
 ---
 title: UI Libraries cannot be fully accessible
 date_authored: 2026-09-01T01:15:43.759Z
+date_modified: 2026-09-01T13:39:44.335Z
 splash_image_url: 20260831_splash
 splash_image_source: https://unsplash.com/photos/man-climbing-on-ladder-inside-room-Te48TPzdcU8
 splash_image_alt: |
@@ -110,7 +111,10 @@ which tidily includes screen reader tests that reference their respective WCAG S
 ## Built to serve
 
 When building UI libraries, especially for business outcomes or in service to unknown users,
-accessibility must be a pillar of focus.
+accessibility must be a pillar of focus. When choosing to adopt a UI library, headless or
+otherwise, it's imperative to evaluate each individual component you intend to use and test them.
+Adoption of a UI library, no matter their accessibility claims, does not guarantee
+the surrounding application will become accessible.
 
-But when a UI library does not properly test their components, or they make incomplete claims
+If a UI library does not properly test their components, or they make incomplete claims
 about accessibility, then they are distributing barriers at scale.
