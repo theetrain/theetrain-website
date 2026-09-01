@@ -1,0 +1,116 @@
+---
+title: UI Libraries cannot be fully accessible
+date_authored: 2026-09-01T01:15:43.759Z
+splash_image_url: 20260831_splash
+splash_image_source: https://unsplash.com/photos/man-climbing-on-ladder-inside-room-Te48TPzdcU8
+splash_image_alt: |
+  Isometric perspective of a room being renovated. On the left side, fixtures, flooring, and windows appear complete with white paint;
+  on the right side a room appears laid bare with exposed flooring, walls, and ceiling, as an unrefined work in progress.
+splash_image_description: |
+  "man climbing on ladder inside room" by Milivoj Kuhar
+---
+
+Web UI libraries are extremely helpful when built right. They can consolidate many 
+decisions, support teams of any size, ensure consistency, and if done right, account for
+accessible interactions. 
+
+Plenty of paid and free UI libraries exist, and some of them claim
+some level of accessibility. From my observations, they provide claims that span
+a few levels of confidence:
+
+1. No mention of accessibility.
+2. A one-liner mentioning their components are accessible, but nothing more.
+3. A document dedicated to accessibility, and a short list of considerations made.
+4. A comprehensive overview of accessibility features accounted for, maybe some 
+  documented tests, and potentially a disclaimer of not being fully accessible.
+
+There's also the paradox of headless UI libraries claiming any level of accessibility. 
+By definition, a headless UI library only provides utility logic so that consumers may
+compose their own set of components. 
+To review, there are [4 principles from the Web Contents Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility), listed
+here for convenience:
+
+- Perceivable
+- Operable
+- Understandable
+- Robust
+
+Some headless libraries that claim any amount of accessibility do so from the 
+basis of following patterns from the ARIA Authoring Practices Guide (APG), a guide that
+provides a set of disclaimers in its [APG Introduction](https://www.w3.org/WAI/ARIA/apg/about/introduction/). 
+Their introduction includes some important points, such as:
+
+> While the APG includes a library of patterns and functional examples, \[its\]
+> objectives do not include providing a comprehensive design system or
+> production-ready code. Not only would developing a production-ready design
+> system be beyond the capacity of the Authoring Practices Task Force, developing
+> examples that satisfy requirements of a unified design system would inhibit its
+> primary aim of building broad understanding of relevant practices.
+
+For educational purposes, it's a useful resource. As a development resource, it is not,
+nor does it claim to be, a quality checklist for components. It cannot be relied upon
+as an up-to-date, fully tested, and comprehensive set of guidelines to building
+some components for a UI library. APG can be considered as one of several quality checks,
+but it should not be the only reference.
+
+Let's try applying headless UI libraries to the 4 WCAG principles:
+
+- Perceivable; unaccounted for, its consumers provide styles.
+- Operable; at worst, unaccounted for. At best, accounts for keyboard and assistive
+  technology users specifically when it comes to interactive components; which may
+  or may not have documented tests or a wide coverage of situations.
+- Understandable; at worst, unaccounted for. At best, provide customizations for
+  multi-lingual copy where applicable wherever single-language copy is provided.
+  Either way, the consumer must provide content and test surrounding workflows. 
+- Robust; at worst, unaccounted for. At best, provide appropriate attributes for
+  name, role, value that can be represented under a variety of conditions. Either way, 
+  the consumer must apply these attributes to applicable elements and test to ensure
+  all states reflect across a variety of user agents.
+
+Given the amount of responsibility that falls on the consumer of a UI library, it would
+be accurate to say a UI library does not, and cannot solve for accessibility to various
+compliance levels of WCAG, least of all would a headless UI library be able to fully solve
+all WCAG success criteria.
+
+Does that mean it's not worth trying to build a UI library? Of course not, and I say this
+as someone who had built a few design systems. Being able to provide components to team
+members that you can confidently say had put in all reasonable efforts to provide accessible
+interactions within the constraints of their boundaries is always worth it; because adoption
+of such patterns can scale up nicely. As well, when accessibility flaws are identified and triaged
+as priority-zero bugs to be patched and shipped, all consumers can receive those improvements
+swiftly and at scale.
+
+## The right approach for UI libraries
+
+Always start with a disclaimer. If I could be a bit meta, I disclaim my words in
+this blog post as a comprehensive guide to building accessible UI libraries. With
+similar intent, I believe it's important for UI libraries to disclaim that adopting
+their components will make any consuming web service suddenly become accessible; there
+is so much for the library consumer to consider, and it should be made frequently
+clear to the consumer what to account for.
+
+With that said, here's a brief checklist of considerations I believe every UI library
+should include:
+
+1. Documentation front pages includes a passage or link to a document that provides an
+  accessibility pledge. This pledge disclaims any level of adoption of the UI library
+  would lead to an accessible application. It references WCAG, and any relevant
+  accessibility legislature the UI library is intended to serve and/or comply with.
+2. It's possible for relevant users to easily submit feedback or issues; and if such
+  issues relate to accessibility, then they are treated as critical bugs. Ideally,
+  similar priority can be made for usability.
+3. Individual component documentation includes: eligibility criteria, when to use it,
+  when not to use it, what to use instead in some common situations; comprehensive tests
+  for assistive technologies across multiple systems, and convenient links or summaries of known
+  issues.
+
+One good example I found is the [U.S. Web Design System Combo box component documentation](https://designsystem.digital.gov/components/combo-box/accessibility-tests/),
+which tidily includes screen reader tests that reference their respective WCAG Success Criterion.
+
+## Built to serve
+
+When building UI libraries, especially for business outcomes or in service to unknown users,
+accessibility must be a pillar of focus.
+
+But when a UI library does not properly test their components, or they make incomplete claims
+about accessibility, then they are distributing barriers at scale.

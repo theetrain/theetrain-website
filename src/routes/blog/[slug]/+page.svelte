@@ -83,7 +83,7 @@
           {#if splashImage.source}
             <a
               rel="external"
-              href="https://unsplash.com/photos/aerial-view-of-trees-and-river-sss0DlUxfGY"
+              href={splashImage.source}
               >(source<span class="visually-hidden"> for {splashImage.description}</span>)</a
             >
           {/if}

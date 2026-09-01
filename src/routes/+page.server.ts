@@ -14,5 +14,7 @@ export const load: PageServerLoad = async () => {
     })
   }
 
+  latestPosts.reverse()
+
   return { title: 'Enrico Sacchetti, software architect', latestPosts }
 }

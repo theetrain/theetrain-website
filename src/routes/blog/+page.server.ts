@@ -9,6 +9,8 @@ export async function load() {
     date_authored: format(post.date_authored, 'yyyy MMMM d')
   }))
 
+  posts.reverse()
+
   return {
     posts
   }
