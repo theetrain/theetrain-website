@@ -26,7 +26,8 @@ const mdsvexConfig: MdsvexOptions = {
       return `{@html \`${html}\` }`
     }
   },
-  extensions: ['.md', '.svx']
+  extensions: ['.md', '.svx'],
+  layout: './src/lib/components/BlogLayout.svx'
 }
 
 export default defineConfig({
