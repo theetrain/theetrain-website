@@ -1,7 +1,7 @@
 ---
 title: UI Libraries do not make your application accessible
 date_authored: 2026-09-01T01:15:43.759Z
-date_modified: 2026-09-03T01:29:56.014Z
+date_modified: 2026-09-03T16:36:01.432Z
 splash_image_url: 20260831_splash
 splash_image_source: https://unsplash.com/photos/man-climbing-on-ladder-inside-room-Te48TPzdcU8
 splash_image_alt: |
@@ -143,7 +143,9 @@ should include:
 1. Documentation front pages include a passage or link to a document that provides an
   accessibility pledge. This pledge disclaims any level of adoption of the UI library
   would lead to an accessible application. It references WCAG, and any relevant
-  accessibility legislature the UI library is intended to serve and/or comply with.
+  accessibility legislature the UI library is intended to serve and/or comply with. 
+  View [Developing an Accessibility Statement by the Web Accessibility Initiative](https://www.w3.org/WAI/planning/statements/) for more
+  guidance.
 2. It's possible for relevant users to easily submit feedback or issues; and if such
   issues relate to accessibility, then they are treated as critical bugs. Ideally,
   similar priority can be made for usability.
