@@ -1,7 +1,7 @@
 ---
-title: UI Libraries cannot be fully accessible
+title: UI Libraries do not make your application accessible
 date_authored: 2026-09-01T01:15:43.759Z
-date_modified: 2026-09-01T13:39:44.335Z
+date_modified: 2026-09-03T01:29:56.014Z
 splash_image_url: 20260831_splash
 splash_image_source: https://unsplash.com/photos/man-climbing-on-ladder-inside-room-Te48TPzdcU8
 splash_image_alt: |
@@ -13,7 +13,50 @@ splash_image_description: |
 
 Web UI libraries are extremely helpful when built right. They can consolidate many 
 decisions, support teams of any size, ensure consistency, and if done right, account for
-accessible interactions. 
+accessible interactions. Although, adoption alone does not guarantee a site or application
+will become fully accessible or usable.
+
+Note, I may use the terms 'accessibility' and 'usability' interchangeably, but they have
+important distinctions: in order for a task to be achievable with a wide variety of user agents and human 
+abilities, then it must be made accessible; and in order for a workflow to be highly efficient
+and with minimal motor or cognitive strain, then it must be made usable. It's sometimes trickier
+to make a digital experience usable after it has been made accessible, but with "inclusive
+design" we can make an experience usable first in order to make it accessible more easily.
+
+With that in mind, here are a few examples of usability flaws in a UI library that may carry
+into an application:
+
+- A styled UI library provides a theme that is either only high contrast, or only low contrast.
+- Some provided interactive elements do not present focus rings.
+- A button group of 2 modes presents the 'active' toggle as an inverted colour, making it
+  unclear which button is active and which is inactive.
+- An accordion with its 'expanded' indicator too far away from the start position of its
+  container, making it practically invisible to a user with a screen magnifier.
+- Top-level navigation links that use colour alone to represent the 'current' page.
+
+A keen observer or experienced practitioner may avoid the above flaws in their own
+projects, but they may still carry over depending on who is making the adoption decision
+evaluated against their own abilities; at which point it may be too late to undo the
+decision, or it may be a challenge to report the issue and have it prioritized by
+the library maintainer either due to competing priorities or education gaps in
+acknowledging the priority.
+
+Though even in the best circumstances, such as when a thoughtfully designed and thoroughly
+tested library becomes adopted, there is still the possibility of components being put
+together without proper care by the adopter. Some examples are:
+
+- An accessible combobox is presented for the user to select options for a form submission,
+  but selecting an item navigates to another page entirely, and without prior notice.
+- A group of three accessible accordions is used to contain three complex applications
+  that present nested interactions and heavy payloads.
+- A link provides distinct styles and an appropriate `aria-current` value, but goes unused.
+
+Some of these micro interactions are complex, for sure; but proper guidelines must be
+put forth to increase the chances of having the adopter make the right decisions. Not all
+adopters can be trained, or be afforded enough time, but the UI library cannot bear all
+responsibility.
+
+## Accessibility claims
 
 Plenty of paid and free UI libraries exist, and some of them claim
 some level of accessibility. From my observations, they provide claims that span
@@ -23,9 +66,10 @@ a few levels of confidence:
 2. A one-liner mentioning their components are accessible, but nothing more.
 3. A document dedicated to accessibility, and a short list of considerations made.
 4. A comprehensive overview of accessibility features accounted for, maybe some 
-  documented tests, and potentially a disclaimer of not being fully accessible.
+  documented tests, guidelines on every component page, and potentially a disclaimer
+  of not being fully accessible.
 
-There's also the paradox of headless UI libraries claiming any level of accessibility. 
+There's also the paradox of "headless" UI libraries claiming some level of accessibility. 
 By definition, a headless UI library only provides utility logic so that consumers may
 compose their own set of components. 
 To review, there are [4 principles from the Web Contents Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility), listed
@@ -56,7 +100,8 @@ but it should not be the only reference.
 
 Let's try applying headless UI libraries to the 4 WCAG principles:
 
-- Perceivable; unaccounted for, its consumers provide styles.
+- Perceivable; unaccounted for, its consumers provide styles, ensure proper colour contrast,
+  focus styles, interactive affordances, labels, and more.
 - Operable; at worst, unaccounted for. At best, accounts for keyboard and assistive
   technology users specifically when it comes to interactive components; which may
   or may not have documented tests or a wide coverage of situations.
@@ -68,12 +113,13 @@ Let's try applying headless UI libraries to the 4 WCAG principles:
   the consumer must apply these attributes to applicable elements and test to ensure
   all states reflect across a variety of user agents.
 
-Given the amount of responsibility that falls on the consumer of a UI library, it would
-be accurate to say a UI library does not, and cannot solve for accessibility to various
-compliance levels of WCAG, least of all would a headless UI library be able to fully solve
-all WCAG success criteria.
+Given the amount of leftover responsibility for the library adopter, it's clear that a UI
+library, accessible or not, cannot make the adopter's application accessible purely from
+adoption. Especially when adopting a headless library, where all the perceivable and understandable
+parts are not provided, the adopting application does not have accessible handled by the
+library alone.
 
-Does that mean it's not worth trying to build a UI library? Of course not, and I say this
+Does that mean it's not worth trying to build or adopt a UI library? Of course not, and I say this
 as someone who had built a few design systems. Being able to provide components to team
 members that you can confidently say had put in all reasonable efforts to provide accessible
 interactions within the constraints of their boundaries is always worth it; because adoption
@@ -102,13 +148,19 @@ should include:
   similar priority can be made for usability.
 3. Individual component documentation includes: eligibility criteria, when to use it,
   when not to use it, what to use instead in some common situations; comprehensive tests
-  for assistive technologies across multiple systems, and convenient links or summaries of known
+  for assistive technologies across multiple systems; and convenient links or summaries of known
   issues.
 
 One good example I found is the [U.S. Web Design System Combo box component documentation](https://designsystem.digital.gov/components/combo-box/accessibility-tests/),
 which tidily includes screen reader tests that reference their respective WCAG Success Criterion.
 
-## Built to serve
+## Build to serve
+
+Be cautious when adopting UI libraries. There may be cases where necessary attributes may
+be missing, or contrast is insufficient, there's too much travel between context and
+its first meaningful interaction. Some components may need to be vendored or forked,
+but it's nice to put in the time to constructively open tickets to report any gaps and
+see how they may be addressed; because the fix will compound its effects across all adopters.
 
 When building UI libraries, especially for business outcomes or in service to unknown users,
 accessibility must be a pillar of focus. When choosing to adopt a UI library, headless or
