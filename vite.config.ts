@@ -42,8 +42,13 @@ export default defineConfig({
       families: [
         {
           name: 'Source Serif 4',
-          preload: true
+          preload: true,
+          weights: [300],
         },
+        {
+          name: 'Lexend',
+          weights: [300]
+        }
       ]
     })
   ]
