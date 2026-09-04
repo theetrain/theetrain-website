@@ -12,7 +12,7 @@ splash_image_description: |
 ---
 
 Web UI libraries are extremely helpful when built right. They can consolidate many 
-decisions, support teams of any size, ensure consistency, and if done right, account for
+decisions, support teams of any size, ensure consistency, and account for
 accessible interactions. Although, adoption alone does not guarantee a site or application
 will become fully accessible or usable.
 
