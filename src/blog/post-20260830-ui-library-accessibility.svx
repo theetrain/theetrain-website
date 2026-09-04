@@ -1,7 +1,7 @@
 ---
 title: UI Libraries do not make your application accessible
 date_authored: 2026-09-01T01:15:43.759Z
-date_modified: 2026-09-03T16:36:01.432Z
+date_modified: 2026-09-04T17:37:59.227Z
 splash_image_url: 20260831_splash
 splash_image_source: https://unsplash.com/photos/man-climbing-on-ladder-inside-room-Te48TPzdcU8
 splash_image_alt: |
