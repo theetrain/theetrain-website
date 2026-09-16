@@ -42,4 +42,7 @@
   li:last-of-type .separator {
     display: none;
   }
+  li {
+    white-space: normal;
+  }
 </style>

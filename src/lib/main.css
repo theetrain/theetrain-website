@@ -28,11 +28,13 @@
   &,
   &[data-font-style='serif'] {
     font-family: 'Source Serif 4', serif;
-    font-weight: 300;
+    font-weight: 400;
+    text-rendering: geometricPrecision;
   }
   &[data-font-style='sans'] {
     font-family: 'Lexend', Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    text-rendering: geometricPrecision;
   }
 
   cursor: unset;
