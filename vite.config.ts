@@ -7,6 +7,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import contentCollections from '@content-collections/vite'
 import { fontless } from 'fontless'
 import { defineConfig } from 'vite'
+import path from 'node:path'
 
 const highlighter = await createHighlighter({
   themes: ['github-light', 'github-dark'],
@@ -26,7 +27,8 @@ const mdsvexConfig: MdsvexOptions = {
       return `{@html \`${html}\` }`
     }
   },
-  extensions: ['.md', '.svx']
+  extensions: ['.md', '.svx'],
+  layout: path.resolve(import.meta.dirname, './src/lib/components/BlogLayout.svx')
 }
 
 export default defineConfig({
