@@ -63,8 +63,8 @@ Specializing in front end web development, inclusive design, and design systems.
   <meta property="og:image" content={ogImage} />
 
   {#each fontPreloads as attrs}
-		<link {...attrs} />
-	{/each}
+    <link {...attrs} />
+  {/each}
 
   <link
     rel="alternate"

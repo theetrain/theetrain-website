@@ -81,9 +81,7 @@
           {/if}
 
           {#if splashImage.source}
-            <a
-              rel="external"
-              href={splashImage.source}
+            <a rel="external" href={splashImage.source}
               >(source<span class="visually-hidden"> for {splashImage.description}</span>)</a
             >
           {/if}

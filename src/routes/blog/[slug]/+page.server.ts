@@ -32,7 +32,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
   let splashImageSources!: EnhancedPicture
 
   if (post.splash_image_url) {
-    const imageModule = await import(`../../../lib/assets/blog/blog_${post.splash_image_url}.avif?enhanced`)
+    const imageModule = await import(`#lib/assets/blog/blog_${post.splash_image_url}.avif?enhanced`)
 
     splashImageSources = imageModule.default
   }
